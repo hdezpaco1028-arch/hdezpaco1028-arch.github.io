@@ -3,30 +3,190 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cool Gadget Deals</title>
+  <title>🔥 Trendy Deals Store 🔥</title>
   <style>
-    body{font-family:system-ui,Arial;margin:0;padding:0;background:#fafafa;color:#111;display:flex;align-items:center;justify-content:center;min-height:100vh}
-    .card{max-width:720px;width:94%;background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.08);padding:20px;text-align:center}
-    h1{margin:0 0 8px;font-size:24px}
-    p{color:#444;font-size:16px}
-    .product{margin-top:18px;padding:14px;border-radius:10px;border:1px solid #eee}
-    .buy{display:inline-block;margin-top:12px;padding:12px 20px;border-radius:10px;background:#111;color:#fff;text-decoration:none;font-weight:600}
-    footer{margin-top:18px;color:#888;font-size:13px}
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff69b4, #87cefa);
+      color: #333;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 105, 180, 0.95);
+      color: #fff;
+      text-align: center;
+      padding: 18px;
+      font-size: 26px;
+      font-weight: bold;
+      z-index: 1000;
+    }
+    .video-section {
+      text-align: center;
+      padding: 10px;
+      background: #fff;
+    }
+    iframe {
+      width: 100%;
+      max-width: 400px;
+      height: 550px;
+      border-radius: 12px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      width: 280px;
+      margin: 10px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card h2 {
+      font-size: 18px;
+      margin: 12px 0 8px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 18px;
+      color: #111;
+      font-weight: bold;
+    }
+    .buy-btn {
+      display: inline-block;
+      margin: 12px 0 16px;
+      background: #ff69b4;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .buy-btn:hover {
+      background: #ff1493;
+    }
+    footer {
+      text-align: center;
+      padding: 16px;
+      color: #fff;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>LED Phone Selfie Light</h1>
-    <p>Get perfect lighting for selfies and TikToks anytime — clips on any phone!</p>
+  <header>🔥 Trendy Deals 🔥</header>
 
-    <div class="product">
-      <strong>Price:</strong> Around $10–$15 on Amazon
-      <div style="margin-top:8px">
-        <a class="buy" href="https://www.amazon.com/s?k=led+selfie+light" target="_blank" rel="noopener noreferrer">Check Price</a>
-      </div>
-    </div>
-
-    <footer>Follow me on TikTok @franciscohernande039</footer>
+  <!-- TikTok Video Embed -->
+  <div class="video-section">
+    <iframe src="https://www.tiktok.com/embed/v2/7390564164374650144" frameborder="0"></iframe>
+    <p style="font-size:14px;">Follow us on TikTok: <b>@YourTikTokName</b></p>
   </div>
+
+  <div class="container">
+    <!-- Product 1 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/61Tt8SYE3XL._AC_SL1500_.jpg" alt="LED Selfie Light">
+      <h2>LED Selfie Ring Light</h2>
+      <p>Perfect lighting for TikTok videos and selfies.</p>
+      <p class="price">$12.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=led+selfie+ring+light" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 2 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/71O4nMvf9DL._AC_SL1500_.jpg" alt="Phone Tripod">
+      <h2>Flexible Phone Tripod</h2>
+      <p>Stabilize your phone for perfect angles.</p>
+      <p class="price">$15.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=flexible+phone+tripod" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 3 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/61uvfM7twSL._AC_SL1500_.jpg" alt="Bluetooth Remote">
+      <h2>Bluetooth Shutter Remote</h2>
+      <p>Hands-free photo capture for content creators.</p>
+      <p class="price">$8.49</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=bluetooth+shutter+remote" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 4 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/81b8w1LBXKL._AC_SL1500_.jpg" alt="Wireless Earbuds">
+      <h2>Wireless Earbuds</h2>
+      <p>High-quality sound, perfect for daily use.</p>
+      <p class="price">$24.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=wireless+earbuds" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 5 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/71bFcm1Kf-L._AC_SL1500_.jpg" alt="Mini Projector">
+      <h2>Portable Mini Projector</h2>
+      <p>Turn any wall into a cinema screen.</p>
+      <p class="price">$59.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=portable+mini+projector" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 6 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/61+5xD14eIL._AC_SL1500_.jpg" alt="RGB Gaming Mouse Pad">
+      <h2>RGB Gaming Mouse Pad</h2>
+      <p>Light up your desk setup.</p>
+      <p class="price">$19.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=rgb+gaming+mouse+pad" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 7 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/71I8KY5Ub6L._AC_SL1500_.jpg" alt="Smart LED Strip Lights">
+      <h2>Smart LED Strip Lights</h2>
+      <p>Create colorful vibes in your room.</p>
+      <p class="price">$16.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=smart+led+strip+lights" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 8 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/61GzXjY5tIL._AC_SL1500_.jpg" alt="Mini Desk Fan">
+      <h2>USB Mini Desk Fan</h2>
+      <p>Stay cool while working or gaming.</p>
+      <p class="price">$9.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=usb+mini+desk+fan" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 9 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/61OY9i7kEIL._AC_SL1500_.jpg" alt="Reusable Water Bottle">
+      <h2>Reusable Water Bottle</h2>
+      <p>Eco-friendly, stylish, and leak-proof.</p>
+      <p class="price">$14.49</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=reusable+water+bottle" target="_blank">Buy Now</a>
+    </div>
+    <!-- Product 10 -->
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/I/71KjLNVb9NL._AC_SL1500_.jpg" alt="Wireless Charger">
+      <h2>Wireless Fast Charger</h2>
+      <p>Charge your phone hassle-free.</p>
+      <p class="price">$17.99</p>
+      <a class="buy-btn" href="https://www.amazon.com/s?k=wireless+fast+charger" target="_blank">Buy Now</a>
+    </div>
+  </div>
+
+  <footer>© 2025 Trendy Deals | Follow: @franciscohernande039</footer>
 </body>
-<font-weighteight
+</html>

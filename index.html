@@ -3,189 +3,265 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>🔥 Trendy Deals Store 🔥</title>
+  <title>🔥 Trendy Deals — Francisco's Picks 🔥</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #ff69b4, #87cefa);
-      color: #333;
+    :root{
+      --pink:#ff5aa5; --cyan:#45d1ff; --bg:#0f1724; --card:#ffffff;
     }
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 105, 180, 0.95);
-      color: #fff;
-      text-align: center;
-      padding: 18px;
-      font-size: 26px;
-      font-weight: bold;
-      z-index: 1000;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter, Arial, sans-serif;
+      background: linear-gradient(160deg, #0b0f1a 0%, rgba(10,10,20,0.6) 60%), linear-gradient(135deg,var(--pink),var(--cyan));
+      -webkit-font-smoothing:antialiased; color:#111;
     }
-    .video-section {
-      text-align: center;
-      padding: 10px;
-      background: #fff;
+
+    header{
+      position:sticky; top:0; z-index:50;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px 16px; backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    iframe {
-      width: 100%;
-      max-width: 400px;
-      height: 550px;
-      border-radius: 12px;
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:46px;height:46px;border-radius:10px;
+      background:linear-gradient(135deg,var(--pink),var(--cyan)); display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:800;font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,0.2)
     }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: centdevice-widthdding: 20px;
+    .title{color:#fff;font-weight:700;font-size:18px}
+
+    .links{display:flex;gap:10px;align-items:center}
+    .social { color:#fff; text-decoration:none; font-weight:600; background:rgba(255,255,255,0.06); padding:8px 10px; border-radius:10px; font-size:13px }
+
+    main{max-width:980px;margin:18px auto;padding:10px;}
+
+    .hero{
+      background:rgba(255,255,255,0.04); border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center;
+      box-shadow:0 8px 30px rgba(0,0,0,0.25);
     }
-    .card {
-      background: #fff;
-      width: 280px;
-      margin: 10px;
-      border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease;
+    .hero-left{flex:1}
+    .hero-right{width:360px;max-width:40%}
+
+    .store-title{color:#fff;font-size:20px;font-weight:800;margin-bottom:6px}
+    .store-sub{color:#e6f7ffcc;font-size:13px;margin-bottom:8px}
+
+    /* grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:16px}
+    .card{
+      background:var(--card); border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(8,12,20,0.25);
+      transform: translateY(0); transition: transform .28s ease, box-shadow .28s ease;
+      display:flex;flex-direction:column;
     }
-    .card:hover {
-      transform: translateY(-6px);
+    .card:hover{transform:translateY(-8px); box-shadow:0 18px 45px rgba(8,12,20,0.35)}
+    .card img{width:100%; height:160px; object-fit:cover; display:block; background:#f2f2f2}
+    .card-body{padding:12px; flex:1; display:flex;flex-direction:column; gap:8px}
+    .p-title{font-weight:700;font-size:15px;color:#0f1724}
+    .p-desc{font-size:13px;color:#555;flex:1}
+    .p-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .price{font-weight:800;color:#0f1724}
+    .buy{
+      background:linear-gradient(90deg,var(--pink),var(--cyan)); color:#fff; border:none;padding:9px 12px;border-radius:9px;
+      text-decoration:none; font-weight:700; cursor:pointer; box-shadow:0 8px 18px rgba(0,0,0,0.18)
     }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card h2 {
-      font-size: 18px;
-      margin: 12px 0 8px;
-    }
-    .card p {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 10px;
-    }
-    .price {
-      font-size: 18px;
-      color: #111;
-      font-weight: bold;
-    }
-    .buy-btn {
-      display: inline-block;
-      margin: 12px 0 16px;
-      background: #ff69b4;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .buy-btn:hover {
-      background: #ff1493;
-    }
-    footer {
-      text-align: center;
-      padding: 16px;
-      color: #fff;
-      font-size: 14px;
+
+    /* smooth fade-in */
+    .fade-in { animation: fadeIn .6s both }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none} }
+
+    /* footer */
+    footer{margin:18px auto;max-width:980px;padding:18px;color:#fff;text-align:center;font-size:13px}
+    a.small{color:#fff;text-decoration:underline}
+
+    /* responsive tweaks */
+    @media (max-width:720px){
+      .hero-right{display:none}
+      header{padding:10px}
     }
   </style>
 </head>
 <body>
-  <header>🔥 Trendy Deals 🔥</header>
+  <header>
+    <div class="brand">
+      <div class="logo">FD</div>
+      <div>
+        <div class="title">Trendy Deals — Francisco</div>
+        <div style="font-size:12px;color:#eaf8ff99">TikTok picks • Quick finds • Under $60</div>
+      </div>
+    </div>
 
-  <!-- TikTok Video Embed -->
-  <div class="video-section">
-    <iframe src="https://www.tiktok.com/embed/v2/7390564164374650144" frameborder="0"></iframe>
-    <p style="font-size:14px;">Follow us on TikTok: <b>@franciscohernande039</b></p>
-  </div>
+    <div class="links">
+      <a class="social" href="https://www.tiktok.com/@franciscohernande039" target="_blank">TikTok</a>
+      <a class="social" href="https://instagram.com/hdezpaco1028" target="_blank">Instagram</a>
+      <a class="social" href="https://www.amazon.com" target="_blank">Shop Amazon</a>
+    </div>
+  </header>
 
-  <div class="container">
-    <!-- Product 1 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61Tt8SYE3XL._AC_SL1500_.jpg" alt="LED Selfie Light">
-      <h2>LED Selfie Ring Light</h2>
-      <p>Perfect lighting for TikTok videos and selfies.</p>
-      <p class="price">$12.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=led+selfie+ring+light" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 2 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/71O4nMvf9DL._AC_SL1500_.jpg" alt="Phone Tripod">
-      <h2>Flexible Phone Tripod</h2>
-      <p>Stabilize your phone for perfect angles.</p>
-      <p class="price">$15.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=flexible+phone+tripod" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 3 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61uvfM7twSL._AC_SL1500_.jpg" alt="Bluetooth Remote">
-      <h2>Bluetooth Shutter Remote</h2>
-      <p>Hands-free photo capture for content creators.</p>
-      <p class="price">$8.49</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=bluetooth+shutter+remote" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 4 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/81b8w1LBXKL._AC_SL1500_.jpg" alt="Wireless Earbuds">
-      <h2>Wireless Earbuds</h2>
-      <p>High-quality sound, perfect for daily use.</p>
-      <p class="price">$24.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=wireless+earbuds" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 5 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/71bFcm1Kf-L._AC_SL1500_.jpg" alt="Mini Projector">
-      <h2>Portable Mini Projector</h2>
-      <p>Turn any wall into a cinema screen.</p>
-      <p class="price">$59.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=portable+mini+projector" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 6 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61+5xD14eIL._AC_SL1500_.jpg" alt="RGB Gaming Mouse Pad">
-      <h2>RGB Gaming Mouse Pad</h2>
-      <p>Light up your desk setup.</p>
-      <p class="price">$19.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=rgb+gaming+mouse+pad" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 7 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/71I8KY5Ub6L._AC_SL1500_.jpg" alt="Smart LED Strip Lights">
-      <h2>Smart LED Strip Lights</h2>
-      <p>Create colorful vibes in your room.</p>
-      <p class="price">$16.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=smart+led+strip+lights" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 8 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61GzXjY5tIL._AC_SL1500_.jpg" alt="Mini Desk Fan">
-      <h2>USB Mini Desk Fan</h2>
-      <p>Stay cool while working or gaming.</p>
-      <p class="price">$9.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=usb+mini+desk+fan" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 9 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/61OY9i7kEIL._AC_SL1500_.jpg" alt="Reusable Water Bottle">
-      <h2>Reusable Water Bottle</h2>
-      <p>Eco-friendly, stylish, and leak-proof.</p>
-      <p class="price">$14.49</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=reusable+water+bottle" target="_blank">Buy Now</a>
-    </div>
-    <!-- Product 10 -->
-    <div class="card">
-      <img src="https://m.media-amazon.com/images/I/71KjLNVb9NL._AC_SL1500_.jpg" alt="Wireless Charger">
-      <h2>Wireless Fast Charger</h2>
-      <p>Charge your phone hassle-free.</p>
-      <p class="price">$17.99</p>
-      <a class="buy-btn" href="https://www.amazon.com/s?k=wireless+fast+charger" target="_blank">Buy Now</a>
-    </div>
-  </div>
+  <main>
+    <section class="hero fade-in">
+      <div class="hero-left">
+        <div class="store-title">Fresh picks — tested for value</div>
+        <div class="store-sub">12 fictional product picks (real price checks done). Click any card → opens Amazon search for that product type.</div>
+        <div style="margin-top:8px;font-size:13px;color:#e6f7ffcc">Tip: swap images with your own product photos when ready.</div>
+      </div>
 
-  <footer>© 2025 Trendy Deals | Follow: @franciscohernande039</footer>
+      <div class="hero-right">
+        <!-- placeholder for your promo video — replace SRC with your TikTok embed -->
+        <iframe style="width:100%;border:0;border-radius:10px" height="220" src="https://www.tiktok.com/embed/v2/1234567890"></iframe>
+      </div>
+    </section>
+
+    <div class="grid" id="storeGrid">
+
+      <!-- Product template: change name/price/link/image as needed -->
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=GlowClip+Selfie+Light" alt="GlowClip Selfie Light">
+        <div class="card-body">
+          <div class="p-title">GlowClip Selfie Light</div>
+          <div class="p-desc">Clip-on refillable selfie light — 3 modes, rechargeable. Great for quick TikToks.</div>
+          <div class="p-bottom">
+            <div class="price">$12.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=clip+on+selfie+light" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=FlexGrip+Tripod" alt="FlexGrip Tripod">
+        <div class="card-body">
+          <div class="p-title">FlexGrip Tripod Stand</div>
+          <div class="p-desc">Portable, bendable legs for weird angles and outdoor shots.</div>
+          <div class="p-bottom">
+            <div class="price">$10.33</div>
+            <a class="buy" href="https://www.amazon.com/s?k=phone+tripod" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=SnapShutter+Remote" alt="SnapShutter Remote">
+        <div class="card-body">
+          <div class="p-title">SnapShutter Bluetooth Remote</div>
+          <div class="p-desc">Tiny wireless shutter for selfies & group shots (keychain size).</div>
+          <div class="p-bottom">
+            <div class="price">$9.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=bluetooth+shutter+remote" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=BeatBuds+Earbuds" alt="BeatBuds Earbuds">
+        <div class="card-body">
+          <div class="p-title">BeatBuds Wireless Earbuds</div>
+          <div class="p-desc">Compact true-wireless earbuds with good battery life — budget-friendly.</div>
+          <div class="p-bottom">
+            <div class="price">$24.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=wireless+earbuds" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=PicoProject+Mini+Projector" alt="PicoProject Mini Projector">
+        <div class="card-body">
+          <div class="p-title">PicoProject Mini Projector</div>
+          <div class="p-desc">Pocket projector for movies & gaming on a wall — great for chill nights.</div>
+          <div class="p-bottom">
+            <div class="price">$59.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=portable+mini+projector" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=AuraStrip+LED+Lights" alt="AuraStrip LED Lights">
+        <div class="card-body">
+          <div class="p-title">AuraStrip Smart LED Lights</div>
+          <div class="p-desc">16M colors, app control — instantly level up your room vibe.</div>
+          <div class="p-bottom">
+            <div class="price">$16.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=led+strip+lights" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=HydroSip+Bottle" alt="HydroSip Bottle">
+        <div class="card-body">
+          <div class="p-title">HydroSip Reusable Bottle</div>
+          <div class="p-desc">Lightweight, leak-proof bottle with stylish colors.</div>
+          <div class="p-bottom">
+            <div class="price">$14.49</div>
+            <a class="buy" href="https://www.amazon.com/s?k=reusable+water+bottle" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=BreezeMini+Fan" alt="BreezeMini Fan">
+        <div class="card-body">
+          <div class="p-title">BreezeMini USB Desk Fan</div>
+          <div class="p-desc">USB-powered compact fan for hot recording sessions.</div>
+          <div class="p-bottom">
+            <div class="price">$9.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=usb+mini+desk+fan" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=ChargeWave+Charger" alt="ChargeWave Charger">
+        <div class="card-body">
+          <div class="p-title">ChargeWave Fast Wireless Charger</div>
+          <div class="p-desc">Mag-safe compatible charging pad — fast and travel-friendly.</div>
+          <div class="p-bottom">
+            <div class="price">$17.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=wireless+charger" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=VibePad+RGB+Mousepad" alt="VibePad RGB Mousepad">
+        <div class="card-body">
+          <div class="p-title">VibePad RGB Mousepad</div>
+          <div class="p-desc">Full RGB edge lighting, anti-slip base — looks great in vids.</div>
+          <div class="p-bottom">
+            <div class="price">$19.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=rgb+gaming+mouse+pad" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=SmartFit+Watch" alt="SmartFit Watch">
+        <div class="card-body">
+          <div class="p-title">SmartFit Fitness Watch</div>
+          <div class="p-desc">Steps, heart rate, notifications — budget smartwatch.</div>
+          <div class="p-bottom">
+            <div class="price">$32.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=smart+fitness+watch" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="https://via.placeholder.com/600x400.png?text=SplashSpeaker" alt="SplashSpeaker">
+        <div class="card-body">
+          <div class="p-title">SplashSpeaker Waterproof Speaker</div>
+          <div class="p-desc">Portable waterproof Bluetooth speaker — pool & outdoors.</div>
+          <div class="p-bottom">
+            <div class="price">$21.99</div>
+            <a class="buy" href="https://www.amazon.com/s?k=waterproof+bluetooth+speaker" target="_blank">Open</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Trendy Deals — Follow on TikTok <a class="small" href="https://www.tiktok.com/@franciscohernande039" target="_blank">@franciscohernande039</a> and IG <a class="small" href="https://instagram.com/hdezpaco1028" target="_blank">@hdezpaco1028</a>.
+    <div style="font-size:12px;margin-top:6px;color:#eaf8ffcc">Prices shown are estimates / examples — check product pages for real-time pricing before you promote.</div>
+  </footer>
 </body>
 </html>

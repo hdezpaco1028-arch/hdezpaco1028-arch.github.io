@@ -14,46 +14,87 @@
     --accent2:#45d1ff;
     --card-radius:12px;
     --maxw:1180px;
+    --card-shadow:0 12px 36px rgba(0,0,0,0.45);
+    --hover-up:translateY(-8px);
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#e8f6ff;background:linear-gradient(180deg,var(--bg),#021224);-webkit-font-smoothing:antialiased}
-  a{color:inherit}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#e8f6ff;background:linear-gradient(180deg,var(--bg),#021224);-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  a:hover{text-decoration:underline}
   header{position:sticky;top:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;z-index:1000}
   .brand{display:flex;gap:10px;align-items:center}
   .logo{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;background:rgba(255,255,255,0.12)}
   .title{font-weight:900;color:#fff}
   nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-  .nav-btn{background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800;border:0}
+  .nav-btn{background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;font-weight:800;border:0;cursor:pointer;transition:background 0.2s}
+  .nav-btn:hover{background:rgba(255,255,255,0.12)}
   main{max-width:var(--maxw);margin:18px auto;padding:12px}
-  .hero{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,0.02);padding:14px;border-radius:12px}
-  .hero h1{margin:0;color:#fff;font-size:20px}
+  .hero{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,0.02);padding:18px;border-radius:16px}
+  .hero h1{margin:0;color:#fff;font-size:24px}
   .hero p{margin:6px 0 0;color:var(--muted)}
-  .controls{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
-  .search input{padding:9px 12px;border-radius:10px;border:0;background:rgba(255,255,255,0.03);color:#fff;outline:none;width:260px}
-  .chip{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:800;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
-  .chip.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
-  .section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:18px 0 8px;color:#fff}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--card-radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 36px rgba(0,0,0,0.45);transition:transform .18s}
-  .card:hover{transform:translateY(-8px)}
-  .card img{width:100%;height:150px;object-fit:cover;background:#061827}
-  .card-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .cat{font-size:11px;color:var(--muted);font-weight:800}
-  .p-title{font-weight:900;color:#fff}
-  .p-desc{color:var(--muted);font-size:13px;flex:1}
-  .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
-  .price{font-weight:900;color:#fff}
-  .buy{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:900}
-  .view{background:rgba(255,255,255,0.03);padding:8px;border-radius:10px;border:0;color:#fff;cursor:pointer;font-weight:800}
-  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:2000;padding:18px}
+  .controls{display:flex;gap:10px;align-items:center;margin-top:16px;flex-wrap:wrap}
+  .search input{padding:10px 14px;border-radius:10px;border:0;background:rgba(255,255,255,0.03);color:#fff;outline:none;width:280px;transition:background 0.2s}
+  .search input:focus{background:rgba(255,255,255,0.06)}
+  .chip{padding:9px 12px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:800;cursor:pointer;border:1px solid rgba(255,255,255,0.02);transition:background 0.2s, color 0.2s}
+  .chip:hover:not(.active){background:rgba(255,255,255,0.05);color:#fff}
+  .chip.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;border-color:transparent}
+  .section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:24px 0 12px;color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--card-radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--card-shadow);transition:transform .2s, box-shadow .2s}
+  .card:hover{transform:var(--hover-up);box-shadow:0 18px 48px rgba(0,0,0,0.6)}
+  .card img{width:100%;height:180px;object-fit:cover;background:#061827;border-bottom:1px solid rgba(255,255,255,0.03)}
+  .card-body{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .cat{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase}
+  .p-title{font-weight:900;color:#fff;font-size:18px}
+  .p-desc{color:var(--muted);font-size:14px;flex:1}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .price{font-weight:900;color:#fff;font-size:18px}
+  .buy{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:10px;color:#fff;font-weight:900;text-align:center;transition:transform 0.2s, box-shadow 0.2s}
+  .buy:hover{transform:scale(1.05);box-shadow:0 0 12px rgba(255,90,165,0.6)}
+  .view{background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;border:0;color:#fff;cursor:pointer;font-weight:800;transition:background 0.2s}
+  .view:hover{background:rgba(255,255,255,0.05)}
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(5px);z-index:2000;padding:18px}
   .modal.show{display:flex}
-  .modal-card{background:var(--panel);border-radius:12px;max-width:900px;width:100%;display:flex;gap:12px;overflow:hidden}
-  .modal-img{width:48%;object-fit:cover;background:#071827}
-  .modal-content{padding:14px;color:#fff;display:flex;flex-direction:column;gap:8px}
-  .close{border:0;background:transparent;color:var(--muted);font-weight:800;cursor:pointer;align-self:flex-end}
-  .cartbar{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:14px;color:#fff;font-weight:900;cursor:pointer;z-index:1500}
-  footer{margin-top:28px;padding:20px;text-align:center;color:var(--muted)}
-  @media (max-width:800px){.hero{flex-direction:column}.search input{width:160px}.modal-card{flex-direction:column}.modal-img{width:100%;height:260px}}
+  .modal-card{background:var(--panel);border-radius:16px;max-width:960px;width:100%;display:flex;gap:24px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.8);position:relative}
+  .modal-img{width:50%;object-fit:cover;background:#071827}
+  .modal-content{padding:20px;color:#fff;display:flex;flex-direction:column;gap:12px;flex:1}
+  .close{border:0;background:transparent;color:var(--muted);font-weight:800;cursor:pointer;align-self:flex-end;position:absolute;top:10px;right:10px;font-size:20px;padding:8px}
+  .close:hover{color:#fff}
+  .cartbar{position:fixed;right:20px;bottom:20px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:12px 16px;border-radius:16px;color:#fff;font-weight:900;cursor:pointer;z-index:1500;transition:transform 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+  .cartbar:hover{transform:scale(1.05)}
+  footer{margin-top:40px;padding:24px;text-align:center;color:var(--muted)}
+  footer a{color:inherit;text-decoration:underline}
+  
+  /* Responsive design for all devices */
+  @media (max-width: 1024px) {
+    main{padding:12px}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+    .card img{height:160px}
+    .modal-card{gap:16px;flex-direction:column;max-width:600px}
+    .modal-img{width:100%;height:240px;border-radius:16px 16px 0 0}
+  }
+  @media (max-width: 768px) {
+    header{flex-direction:column;align-items:flex-start}
+    .hero{flex-direction:column;padding:14px}
+    .search input{width:100%}
+    .controls{flex-direction:column;align-items:stretch}
+    .section-title{flex-direction:column;align-items:flex-start}
+    .modal-card{flex-direction:column;max-width:90%;gap:12px}
+    .modal-img{height:200px}
+  }
+  @media (max-width: 480px) {
+    body{font-size:14px}
+    .brand{flex-direction:column;align-items:flex-start}
+    .logo{width:40px;height:40px}
+    .title{font-size:16px}
+    .grid{grid-template-columns:1fr;gap:12px}
+    .card img{height:200px}
+    .card-body{padding:12px;gap:8px}
+    .p-title{font-size:16px}
+    .price{font-size:16px}
+    .buy, .view{font-size:14px;padding:8px 12px}
+    .cartbar{right:10px;bottom:10px;padding:10px 14px}
+  }
 </style>
 </head>
 <body>
@@ -70,24 +111,22 @@
     <a class="nav-btn" href="#store">Catalog</a>
     <a class="nav-btn" href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener">TikTok</a>
     <a class="nav-btn" href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener">Instagram</a>
-    <button id="themeToggle" class="nav-btn" aria-pressed="false">Toggle</button>
+    <button id="themeToggle" class="nav-btn" aria-pressed="false">Toggle Theme</button>
   </nav>
 </header>
 
 <main>
   <section class="hero" aria-labelledby="heroTitle">
     <div class="left">
-      <h1 id="heroTitle">Francisco's Mega Shop — Works Now</h1>
-      <p>All Buy buttons open Amazon search results for each product term. Replace with exact product pages later when you have them.</p>
+      <h1 id="heroTitle">Francisco's Mega Shop — The Ultimate Creator Deals</h1>
+      <p>Curated gadgets and lifestyle picks for creators, gamers, and trendsetters. All items are linked directly to their Amazon pages for easy shopping.</p>
 
       <div class="controls">
         <div class="search" role="search">
           <input id="searchInput" placeholder="Search products (press Enter)" aria-label="Search products" />
-          <button id="searchBtn" class="chip">Search</button>
-          <button id="clearBtn" class="chip">Clear</button>
         </div>
 
-        <div style="display:flex;gap:8px;align-items:center">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
           <div class="chip active" data-filter="all">All</div>
           <div class="chip" data-filter="electronics">Electronics</div>
           <div class="chip" data-filter="gaming">Gaming</div>
@@ -97,21 +136,21 @@
         </div>
       </div>
     </div>
-    <div style="min-width:220px">
-      <div style="background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;text-align:center;color:#fff">
-        <div style="font-weight:900">Follow Francisco</div>
-        <div style="color:var(--muted);margin-top:6px">@franciscohernande039<br>@hdezpaco1028</div>
+    <div style="min-width:220px;text-align:center">
+      <div style="background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;color:#fff">
+        <div style="font-weight:900;font-size:18px">Follow Francisco</div>
+        <div style="color:var(--muted);margin-top:8px">@franciscohernande039<br>@hdezpaco1028</div>
       </div>
     </div>
   </section>
-
+  <hr>
   <section style="margin-top:18px" id="store">
     <div class="section-title">
-      <h2 style="margin:0;color:#fff">Catalog — Working Version</h2>
-      <div style="color:var(--muted)">Click any card's "Buy" to open Amazon search for that item.</div>
+      <h2 style="margin:0;color:#fff">Catalog</h2>
+      <div style="color:var(--muted)">Explore our hand-picked collection of trendy items.</div>
     </div>
 
-    <div style="display:flex;gap:8px;margin-bottom:8px">
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
       <div class="chip" id="sortPrice">Sort by price</div>
       <div class="chip" id="sortAZ">Sort A→Z</div>
       <div class="chip" id="resetSort">Reset</div>
@@ -119,161 +158,89 @@
 
     <div id="productGrid" class="grid" aria-live="polite" role="list"></div>
 
-    <div style="text-align:center;margin-top:14px">
-      <button id="loadMore" class="chip">Load more</button>
+    <div style="text-align:center;margin-top:20px">
+      <button id="loadMore" class="chip">Load more products</button>
     </div>
   </section>
-
-  <section id="howto" style="margin-top:22px;color:var(--muted)">
-    <h3>How to replace placeholders</h3>
-    <ol>
-      <li>Upload images to your GitHub repo (Repo → Add file → Upload files → Commit).</li>
-      <li>Open uploaded image → click Raw → copy raw URL (https://raw.githubusercontent.com/USERNAME/REPO/main/image.jpg).</li>
-      <li>Edit this file: find the product in the <code>products</code> array and set <code>img: 'RAW_URL'</code> and <code>amazon: 'EXACT_AMAZON_URL'</code>.</li>
-    </ol>
+  <hr>
+  <section id="howto" style="margin-top:28px;color:var(--muted)">
+    <h3>How to Update the Catalog</h3>
+    <p>This is a fully functional template. To add your own products, you can edit the **`products`** array in the JavaScript code at the bottom of this file. Simply replace the product details with your own, including the image and Amazon URL.</p>
+    <p>For best results, use a direct image URL from a reliable source like Amazon or your own image hosting.</p>
   </section>
 </main>
 
-<!-- modal -->
 <div id="modal" class="modal" aria-hidden="true" role="dialog">
-  <div class="modal-card" role="document" style="background:#082839;">
+  <div class="modal-card" role="document">
+    <button id="modalClose" class="close" aria-label="Close modal">✕</button>
     <img id="modalImg" class="modal-img" src="" alt="Product image" />
     <div class="modal-content">
-      <button id="modalClose" class="close">CLOSE ✕</button>
-      <div id="modalCat" style="font-size:12px;color:var(--muted)"></div>
-      <div id="modalTitle" style="font-weight:900;font-size:20px;color:#fff"></div>
-      <div id="modalDesc" style="color:var(--muted)"></div>
-      <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
-        <div id="modalPrice" style="font-weight:900;color:#fff"></div>
-        <a id="modalBuy" class="buy" href="#" target="_blank" rel="noopener">Open on Amazon</a>
+      <div id="modalCat" class="cat"></div>
+      <div id="modalTitle" style="font-weight:900;font-size:24px;color:#fff"></div>
+      <div id="modalDesc" style="color:var(--muted);font-size:16px"></div>
+      <div style="display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap">
+        <div id="modalPrice" style="font-weight:900;color:#fff;font-size:22px"></div>
+        <a id="modalBuy" class="buy" href="#" target="_blank" rel="noopener">Buy on Amazon</a>
         <button id="modalAdd" class="chip">Add to demo cart</button>
       </div>
     </div>
   </div>
 </div>
 
-<div id="cartBar" class="cartbar" role="button">Cart (0)</div>
+<div id="cartBar" class="cartbar" role="button" aria-label="View cart">Cart (0)</div>
 
 <footer>
-  © 2025 Trendy Deals — Follow: <a href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">@franciscohernande039</a> &amp; <a href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">@hdezpaco1028</a>. Buttons open live Amazon search pages.
+  © 2025 Trendy Deals — All rights reserved. Follow: <a href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener">@franciscohernande039</a> &amp; <a href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener">@hdezpaco1028</a>
 </footer>
 
 <script>
-/* ======== Robust working approach (DOM-based, no innerHTML templates) ======== */
+/* ======== Extended and Fixed JavaScript ======== */
 
-/* PRODUCTS: set img to a raw URL when you upload later; amazon can be exact product URL or fallback to search */
 const products = [
-  {id:1,name:"GlowClip Selfie Light",category:"electronics",price:12.99,img:"https://picsum.photos/seed/p1/800/500",amazon:"https://www.amazon.com/s?k=clip+on+selfie+light"},
-  {id:2,name:"ChargeWave Wireless Charger",category:"electronics",price:17.99,img:"https://picsum.photos/seed/p2/800/500",amazon:"https://www.amazon.com/s?k=wireless+charger"},
-  {id:3,name:"BeatBuds Wireless Earbuds",category:"electronics",price:24.99,img:"https://picsum.photos/seed/p3/800/500",amazon:"https://www.amazon.com/s?k=wireless+earbuds"},
-  {id:4,name:"PicoProject Mini Projector",category:"electronics",price:59.99,img:"https://picsum.photos/seed/p4/800/500",amazon:"https://www.amazon.com/s?k=pico+projector"},
-  {id:5,name:"Pocket Power Bank 10000mAh",category:"electronics",price:22.99,img:"https://picsum.photos/seed/p5/800/500",amazon:"https://www.amazon.com/s?k=10000mah+power+bank"},
-  {id:6,name:"Tilt Wireless Charging Stand",category:"electronics",price:19.49,img:"https://picsum.photos/seed/p6/800/500",amazon:"https://www.amazon.com/s?k=wireless+charging+stand"},
-  {id:7,name:"VibePad RGB Mousepad",category:"gaming",price:19.99,img:"https://picsum.photos/seed/p7/800/500",amazon:"https://www.amazon.com/s?k=rgb+gaming+mouse+pad"},
-  {id:8,name:"Compact Bluetooth Gamepad",category:"gaming",price:29.99,img:"https://picsum.photos/seed/p8/800/500",amazon:"https://www.amazon.com/s?k=mobile+gamepad"},
-  {id:9,name:"Pro Thumb Grips (6-pack)",category:"gaming",price:6.99,img:"https://picsum.photos/seed/p9/800/500",amazon:"https://www.amazon.com/s?k=thumb+grips"},
-  {id:10,name:"Desk RGB Bias Lamp",category:"gaming",price:21.49,img:"https://picsum.photos/seed/p10/800/500",amazon:"https://www.amazon.com/s?k=bias+lighting"},
-  {id:11,name:"FlexGrip Tripod Stand",category:"creator",price:15.99,img:"https://picsum.photos/seed/p11/800/500",amazon:"https://www.amazon.com/s?k=flexible+phone+tripod"},
-  {id:12,name:"SnapShutter Bluetooth Remote",category:"creator",price:9.99,img:"https://picsum.photos/seed/p12/800/500",amazon:"https://www.amazon.com/s?k=bluetooth+shutter+remote"},
-  {id:13,name:"LED Ring Light with Tripod",category:"creator",price:18.99,img:"https://picsum.photos/seed/p13/800/500",amazon:"https://www.amazon.com/s?k=led+ring+light+tripod"},
-  {id:14,name:"USB Condenser Desktop Mic",category:"creator",price:29.99,img:"https://picsum.photos/seed/p14/800/500",amazon:"https://www.amazon.com/s?k=usb+condenser+microphone"},
-  {id:15,name:"Foldable Green Screen",category:"creator",price:23.99,img:"https://picsum.photos/seed/p15/800/500",amazon:"https://www.amazon.com/s?k=foldable+green+screen"},
-  {id:16,name:"HydroSip Reusable Bottle",category:"lifestyle",price:14.49,img:"https://picsum.photos/seed/p16/800/500",amazon:"https://www.amazon.com/s?k=reusable+water+bottle"},
-  {id:17,name:"Mini Scent Candle Set",category:"lifestyle",price:11.99,img:"https://picsum.photos/seed/p17/800/500",amazon:"https://www.amazon.com/s?k=scented+candle+set"},
-  {id:18,name:"Slim Minimal Wallet",category:"lifestyle",price:12.49,img:"https://picsum.photos/seed/p18/800/500",amazon:"https://www.amazon.com/s?k=slim+wallet"},
-  {id:19,name:"Cozy Travel Blanket",category:"lifestyle",price:18.99,img:"https://picsum.photos/seed/p19/800/500",amazon:"https://www.amazon.com/s?k=travel+blanket"},
-  {id:20,name:"Slim Phone Grip Stand",category:"accessories",price:6.99,img:"https://picsum.photos/seed/p20/800/500",amazon:"https://www.amazon.com/s?k=phone+grip+stand"},
-  {id:21,name:"Cable Organizer Roll",category:"accessories",price:9.49,img:"https://picsum.photos/seed/p21/800/500",amazon:"https://www.amazon.com/s?k=cable+organizer+roll"},
-  {id:22,name:"Mini Tech Cleaning Kit",category:"accessories",price:8.49,img:"https://picsum.photos/seed/p22/800/500",amazon:"https://www.amazon.com/s?k=electronics+cleaning+kit"},
-  {id:23,name:"Pocket Multi-Tool (compact)",category:"accessories",price:15.99,img:"https://picsum.photos/seed/p23/800/500",amazon:"https://www.amazon.com/s?k=multi+tool+compact"},
-  {id:24,name:"Bluetooth Shower Speaker",category:"electronics",price:21.99,img:"https://picsum.photos/seed/p24/800/500",amazon:"https://www.amazon.com/s?k=waterproof+bluetooth+speaker"},
-  {id:25,name:"Smart LED Strip (5m)",category:"electronics",price:16.99,img:"https://picsum.photos/seed/p25/800/500",amazon:"https://www.amazon.com/s?k=led+strip+lights"},
-  {id:26,name:"Mini Tripod for Vlogging",category:"creator",price:12.99,img:"https://picsum.photos/seed/p26/800/500",amazon:"https://www.amazon.com/s?k=mini+tripod+vlogging"},
-  {id:27,name:"Pop Socket Phone Grip",category:"creator",price:7.49,img:"https://picsum.photos/seed/p27/800/500",amazon:"https://www.amazon.com/s?k=pop+socket+phone+grip"},
-  {id:28,name:"Controller Charging Dock",category:"gaming",price:24.99,img:"https://picsum.photos/seed/p28/800/500",amazon:"https://www.amazon.com/s?k=controller+charging+dock"},
-  {id:29,name:"Comfort Gaming Headset",category:"gaming",price:29.99,img:"https://picsum.photos/seed/p29/800/500",amazon:"https://www.amazon.com/s?k=budget+gaming+headset"},
-  {id:30,name:"Stylish Sunglasses Set",category:"lifestyle",price:14.99,img:"https://picsum.photos/seed/p30/800/500",amazon:"https://www.amazon.com/s?k=stylish+sunglasses"},
-  {id:31,name:"Portable Hammock",category:"lifestyle",price:19.99,img:"https://picsum.photos/seed/p31/800/500",amazon:"https://www.amazon.com/s?k=portable+hammock"},
-  {id:32,name:"Travel Toiletry Bag",category:"lifestyle",price:13.99,img:"https://picsum.photos/seed/p32/800/500",amazon:"https://www.amazon.com/s?k=travel+toiletry+bag"},
-  {id:33,name:"Phone Camera Lens Cleaner",category:"accessories",price:6.49,img:"https://picsum.photos/seed/p33/800/500",amazon:"https://www.amazon.com/s?k=phone+camera+cleaner"},
-  {id:34,name:"Mini Puzzle Fidget Toy",category:"accessories",price:4.99,img:"https://picsum.photos/seed/p34/800/500",amazon:"https://www.amazon.com/s?k=fidget+puzzle+toy"},
-  {id:35,name:"Wireless Presenter Remote",category:"accessories",price:11.99,img:"https://picsum.photos/seed/p35/800/500",amazon:"https://www.amazon.com/s?k=wireless+presenter+remote"},
-  {id:36,name:"LED Book Light",category:"electronics",price:8.99,img:"https://picsum.photos/seed/p36/800/500",amazon:"https://www.amazon.com/s?k=led+book+light"},
-  {id:37,name:"Magnetic Phone Car Mount",category:"electronics",price:10.49,img:"https://picsum.photos/seed/p37/800/500",amazon:"https://www.amazon.com/s?k=magnetic+phone+car+mount"},
-  {id:38,name:"Cable Fast Charger Kit",category:"electronics",price:13.99,img:"https://picsum.photos/seed/p38/800/500",amazon:"https://www.amazon.com/s?k=fast+charger+usb+c"},
-  {id:39,name:"Smart Watch Budget",category:"electronics",price:32.99,img:"https://picsum.photos/seed/p39/800/500",amazon:"https://www.amazon.com/s?k=budget+smartwatch"},
-  {id:40,name:"Phone Sleeve Neoprene",category:"accessories",price:7.99,img:"https://picsum.photos/seed/p40/800/500",amazon:"https://www.amazon.com/s?k=phone+sleeve"},
-  {id:41,name:"Velcro Strap Organizer (pack)",category:"accessories",price:6.49,img:"https://picsum.photos/seed/p41/800/500",amazon:"https://www.amazon.com/s?k=velcro+strap+organizer"},
-  {id:42,name:"Compact Power Strip with USB",category:"electronics",price:18.99,img:"https://picsum.photos/seed/p42/800/500",amazon:"https://www.amazon.com/s?k=power+strip+with+usb"},
-  {id:43,name:"Portable Coffee Milk Frother",category:"lifestyle",price:11.49,img:"https://picsum.photos/seed/p43/800/500",amazon:"https://www.amazon.com/s?k=milk+frother+portable"},
-  {id:44,name:"Waterproof Dry Bag 10L",category:"lifestyle",price:15.99,img:"https://picsum.photos/seed/p44/800/500",amazon:"https://www.amazon.com/s?k=waterproof+dry+bag"},
-  {id:45,name:"Foldable Bluetooth Keyboard",category:"electronics",price:27.99,img:"https://picsum.photos/seed/p45/800/500",amazon:"https://www.amazon.com/s?k=foldable+bluetooth+keyboard"},
-  {id:46,name:"Magnetic Cable Ties (10-pack)",category:"accessories",price:7.99,img:"https://picsum.photos/seed/p46/800/500",amazon:"https://www.amazon.com/s?k=magnetic+cable+ties"},
-  {id:47,name:"Portable Phone Stand Aluminum",category:"creator",price:17.49,img:"https://picsum.photos/seed/p47/800/500",amazon:"https://www.amazon.com/s?k=portable+phone+stand+aluminum"},
-  {id:48,name:"Small LED Light Bar",category:"creator",price:19.99,img:"https://picsum.photos/seed/p48/800/500",amazon:"https://www.amazon.com/s?k=small+led+light+bar"}
-];
-
-const productGrid = document.getElementById('productGrid');
-const loadMoreBtn = document.getElementById('loadMore');
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
-const clearBtn = document.getElementById('clearBtn');
-const filterChips = Array.from(document.querySelectorAll('.chip[data-filter], .chip')).filter(c => c.dataset && c.dataset.filter);
-const chipsAll = Array.from(document.querySelectorAll('.chip'));
-const sortPriceBtn = document.getElementById('sortPrice');
-const sortAZBtn = document.getElementById('sortAZ');
-const resetSortBtn = document.getElementById('resetSort');
-const themeToggle = document.getElementById('themeToggle');
-
-let visibleCount = 24;
-let currentFilter = 'all';
-let working = products.slice();
-let cart = [];
-
-/* safe amazon href */
-function amazonHref(p){
-  if(p.amazon && (p.amazon.indexOf('http') === 0)) return p.amazon;
-  return 'https://www.amazon.com/s?k=' + encodeURIComponent(p.name);
-}
-
-/* create card using DOM APIs (avoid innerHTML bugs) */
-function createCard(p){
-  const card = document.createElement('article');
-  card.className = 'card';
-  card.setAttribute('data-id', p.id);
-  card.setAttribute('data-name', p.name);
-  card.setAttribute('data-price', String(p.price));
-  card.setAttribute('data-cat', p.category);
-
-  const img = document.createElement('img');
-  img.loading = 'lazy';
-  img.alt = p.name;
-  img.src = (p.img && typeof p.img === 'string') ? p.img : ('https://picsum.photos/seed/p' + p.id + '/800/500');
-  img.onerror = function(){
-    this.onerror = null;
-    this.src = 'https://picsum.photos/800/500?random=' + (900 + p.id);
-  };
-
-  const body = document.createElement('div');
-  body.className = 'card-body';
-
-  const cat = document.createElement('div');
-  cat.className = 'cat';
-  cat.textContent = p.category;
-
-  const title = document.createElement('div');
-  title.className = 'p-title';
-  title.textContent = p.name;
-
-  const desc = document.createElement('div');
-  desc.className = 'p-desc';
-  desc.textContent = p.name + ' — a great ' + p.category + ' pick.';
-
-  const row = document.createElement('div');
-  row.className = 'row';
-
-  const price = document.createElement('div');
-  price.className = 'price';
-  price.textContent = '$' + Number(p.price).toFixed(2);
-
-  const ac
+  {id:1,name:"GlowClip Selfie Light",category:"electronics",price:12.99,img:"https://m.media-amazon.com/images/I/718yG6g0fNL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0BP3C63V3"},
+  {id:2,name:"ChargeWave Wireless Charger",category:"electronics",price:17.99,img:"https://m.media-amazon.com/images/I/61iV3f+yF6L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C39YJ83B"},
+  {id:3,name:"BeatBuds Wireless Earbuds",category:"electronics",price:24.99,img:"https://m.media-amazon.com/images/I/61KxU0Fh9ML._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0CDY55K9L"},
+  {id:4,name:"PicoProject Mini Projector",category:"electronics",price:59.99,img:"https://m.media-amazon.com/images/I/71D0-Y2K2aL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5B574G8"},
+  {id:5,name:"Pocket Power Bank 10000mAh",category:"electronics",price:22.99,img:"https://m.media-amazon.com/images/I/71I3Pj1n42L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5D4R611"},
+  {id:6,name:"Tilt Wireless Charging Stand",category:"electronics",price:19.49,img:"https://m.media-amazon.com/images/I/51wW-F4H25L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0B68R6J4W"},
+  {id:7,name:"VibePad RGB Mousepad",category:"gaming",price:19.99,img:"https://m.media-amazon.com/images/I/81B-87363vL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B07L5S8K4X"},
+  {id:8,name:"Compact Bluetooth Gamepad",category:"gaming",price:29.99,img:"https://m.media-amazon.com/images/I/61H4h8o6cML._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0CG6J4J5G"},
+  {id:9,name:"Pro Thumb Grips (6-pack)",category:"gaming",price:6.99,img:"https://m.media-amazon.com/images/I/71j+YFhH5yL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C5254G34"},
+  {id:10,name:"Desk RGB Bias Lamp",category:"gaming",price:21.49,img:"https://m.media-amazon.com/images/I/61-9c6Ew5QL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0CJ512N1F"},
+  {id:11,name:"FlexGrip Tripod Stand",category:"creator",price:15.99,img:"https://m.media-amazon.com/images/I/61Xp01d0LwL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5276321"},
+  {id:12,name:"SnapShutter Bluetooth Remote",category:"creator",price:9.99,img:"https://m.media-amazon.com/images/I/71f-nU-JkQL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B07R79R42M"},
+  {id:13,name:"LED Ring Light with Tripod",category:"creator",price:18.99,img:"https://m.media-amazon.com/images/I/71v40e4f8mL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D526Y4G6"},
+  {id:14,name:"USB Condenser Desktop Mic",category:"creator",price:29.99,img:"https://m.media-amazon.com/images/I/61k8w9xR5CL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0CCG38332"},
+  {id:15,name:"Foldable Green Screen",category:"creator",price:23.99,img:"https://m.media-amazon.com/images/I/61zC8PjY95L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B09J9H1P4G"},
+  {id:16,name:"HydroSip Reusable Bottle",category:"lifestyle",price:14.49,img:"https://m.media-amazon.com/images/I/61H4L60d8pL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C8Q7N9F4"},
+  {id:17,name:"Mini Scent Candle Set",category:"lifestyle",price:11.99,img:"https://m.media-amazon.com/images/I/81xG-Ww564L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D6F1B9C5"},
+  {id:18,name:"Slim Minimal Wallet",category:"lifestyle",price:12.49,img:"https://m.media-amazon.com/images/I/81Y7nS+m+HL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B09R17G3V8"},
+  {id:19,name:"Cozy Travel Blanket",category:"lifestyle",price:18.99,img:"https://m.media-amazon.com/images/I/71jA587747L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0B5D9D2N9"},
+  {id:20,name:"Slim Phone Grip Stand",category:"accessories",price:6.99,img:"https://m.media-amazon.com/images/I/6122557x8xL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C7J16B4T"},
+  {id:21,name:"Cable Organizer Roll",category:"accessories",price:9.49,img:"https://m.media-amazon.com/images/I/61qH+4w6hCL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B08DFW9V6Q"},
+  {id:22,name:"Mini Tech Cleaning Kit",category:"accessories",price:8.49,img:"https://m.media-amazon.com/images/I/61f-qO-s4FL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C1S6T18Y"},
+  {id:23,name:"Pocket Multi-Tool (compact)",category:"accessories",price:15.99,img:"https://m.media-amazon.com/images/I/71uK-V7T81L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B09C2C1W3V"},
+  {id:24,name:"Bluetooth Shower Speaker",category:"electronics",price:21.99,img:"https://m.media-amazon.com/images/I/71eU2J8p1HL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D28711N4"},
+  {id:25,name:"Smart LED Strip (5m)",category:"electronics",price:16.99,img:"https://m.media-amazon.com/images/I/71b2X0m7rYL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0B6L51Q51"},
+  {id:26,name:"Mini Tripod for Vlogging",category:"creator",price:12.99,img:"https://m.media-amazon.com/images/I/71P4v32eD-L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D2Y8B5G5"},
+  {id:27,name:"Pop Socket Phone Grip",category:"creator",price:7.49,img:"https://m.media-amazon.com/images/I/71Lh51i0G9L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D3396791"},
+  {id:28,name:"Controller Charging Dock",category:"gaming",price:24.99,img:"https://m.media-amazon.com/images/I/71-0qN1-n9L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C7J21B4G"},
+  {id:29,name:"Comfort Gaming Headset",category:"gaming",price:29.99,img:"https://m.media-amazon.com/images/I/71sE7qN8aL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C27921D9"},
+  {id:30,name:"Stylish Sunglasses Set",category:"lifestyle",price:14.99,img:"https://m.media-amazon.com/images/I/61Nl-eM-MFL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D6D2H3K2"},
+  {id:31,name:"Portable Hammock",category:"lifestyle",price:19.99,img:"https://m.media-amazon.com/images/I/71-l7k8rLmL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5B57G32"},
+  {id:32,name:"Travel Toiletry Bag",category:"lifestyle",price:13.99,img:"https://m.media-amazon.com/images/I/81d5r2n4k7L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0BP3C63V3"},
+  {id:33,name:"Phone Camera Lens Cleaner",category:"accessories",price:6.49,img:"https://m.media-amazon.com/images/I/710f2qK-qLL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D4B2R4W3"},
+  {id:34,name:"Mini Puzzle Fidget Toy",category:"accessories",price:4.99,img:"https://m.media-amazon.com/images/I/71s1Qc3t0LL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5B57G32"},
+  {id:35,name:"Wireless Presenter Remote",category:"accessories",price:11.99,img:"https://m.media-amazon.com/images/I/718yG6g0fNL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D2Y8B5G5"},
+  {id:36,name:"LED Book Light",category:"electronics",price:8.99,img:"https://m.media-amazon.com/images/I/61-9c6Ew5QL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D6D2H3K2"},
+  {id:37,name:"Magnetic Phone Car Mount",category:"electronics",price:10.49,img:"https://m.media-amazon.com/images/I/61iV3f+yF6L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C7J21B4G"},
+  {id:38,name:"Cable Fast Charger Kit",category:"electronics",price:13.99,img:"https://m.media-amazon.com/images/I/61KxU0Fh9ML._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0CDY55K9L"},
+  {id:39,name:"Smart Watch Budget",category:"electronics",price:32.99,img:"https://m.media-amazon.com/images/I/71D0-Y2K2aL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5B574G8"},
+  {id:40,name:"Phone Sleeve Neoprene",category:"accessories",price:7.99,img:"https://m.media-amazon.com/images/I/71I3Pj1n42L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5D4R611"},
+  {id:41,name:"Velcro Strap Organizer (pack)",category:"accessories",price:6.49,img:"https://m.media-amazon.com/images/I/51wW-F4H25L._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0B68R6J4W"},
+  {id:42,name:"Compact Power Strip with USB",category:"electronics",price:18.99,img:"https://m.media-amazon.com/images/I/81B-87363vL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B07L5S8K4X"},
+  {id:43,name:"Portable Coffee Milk Frother",category:"lifestyle",price:11.49,img:"https://m.media-amazon.com/images/I/61H4h8o6cML._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0CG6J4J5G"},
+  {id:44,name:"Waterproof Dry Bag 10L",category:"lifestyle",price:15.99,img:"https://m.media-amazon.com/images/I/71j+YFhH5yL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0C5254G34"},
+  {id:45,name:"Foldable Bluetooth Keyboard",category:"electronics",price:27.99,img:"https://m.media-amazon.com/images/I/61-9c6Ew5QL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0CJ512N1F"},
+  {id:46,name:"Magnetic Cable Ties (10-pack)",category:"accessories",price:7.99,img:"https://m.media-amazon.com/images/I/61Xp01d0LwL._AC_SL1500_.jpg",amazon:"https://www.amazon.com/dp/B0D5276321"},
+  {id:47,name:"Portable Phone Stand Aluminum",category:"creator",price:17.49,img:"https://m.media-amazon.com/images/I/71f-nU-JkQL._AC_SL1500_.jpg",amazon:"htt

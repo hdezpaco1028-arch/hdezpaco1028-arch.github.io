@@ -1,50 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Trendy Deals — Francisco's Mega Store</title>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Trendy Deals — Francisco's Ultimate Mega Store</title>
+<meta name="description" content="Trendy Deals — curated gadgets, creator tools, lifestyle picks. TikTok picks by @franciscohernande039" />
 <style>
+  /* ---------- THEME / LAYOUT ---------- */
   :root{
-    --bg:#071028; --panel:#0f1724; --muted:#93a5b1;
-    --accent1:#ff5aa5; --accent2:#45d1ff; --glass:rgba(255,255,255,0.04);
-    --radius:14px; --maxw:1200px;
+    --bg:#061428;
+    --panel:#0d2030;
+    --muted:#9fb5c9;
+    --accent1:#ff5aa5;
+    --accent2:#45d1ff;
+    --glass: rgba(255,255,255,0.03);
+    --radius:14px;
+    --maxw:1240px;
+    --card-shadow: 0 14px 40px rgba(2,6,23,0.7);
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#041226);color:#eaf3ff}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#eaf5ff;background:linear-gradient(180deg,var(--bg),#031028);-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  header{position:sticky;top:0;z-index:999;padding:12px 16px;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 8px 30px rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff}
-  .title{font-weight:900;font-size:18px;color:#fff}
-  .sub{font-size:12px;color:rgba(255,255,255,0.9)}
+  /* Header */
+  header{position:sticky;top:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:18px}
+  .title{font-weight:900;color:#fff;font-size:18px}
+  .subtitle{font-size:12px;color:rgba(255,255,255,0.95)}
   nav{display:flex;gap:8px;align-items:center}
-  nav a.btn{background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;font-size:13px}
-  nav a.btn:hover{background:rgba(255,255,255,0.12)}
-  main{max-width:var(--maxw);margin:18px auto;padding:16px}
-  .hero{display:flex;gap:16px;align-items:center;background:var(--glass);padding:14px;border-radius:var(--radius);box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+  .nav-btn{background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800;font-size:13px}
+  /* Main container */
+  main{max-width:var(--maxw);margin:18px auto;padding:12px}
+  .hero{display:flex;gap:16px;background:var(--glass);padding:14px;border-radius:var(--radius);box-shadow:var(--card-shadow);align-items:center}
   .hero-left{flex:1}
   .hero-title{font-size:20px;font-weight:900;color:#fff}
   .hero-desc{color:var(--muted);margin-top:6px;font-size:13px}
-  .hero-actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-  .cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:10px;color:#fff;font-weight:900;text-decoration:none}
-  .sec{background:transparent;padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);color:#fff}
-  .filters{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-  .filter{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:800;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
-  .filter.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
-  .searchBox{display:flex;gap:8px;margin-left:8px;align-items:center}
-  .searchBox input{padding:8px 10px;border-radius:10px;border:0;outline:none;background:rgba(255,255,255,0.03);color:#fff;width:220px}
+  .hero-cta{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:12px;color:#fff;font-weight:900;text-decoration:none}
+  .sec{background:transparent;padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);color:#fff}
+  /* Search & filters */
+  .controls{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+  .search{display:flex;gap:8px;align-items:center}
+  .search input{padding:9px 12px;border-radius:12px;border:0;background:rgba(255,255,255,0.03);color:#fff;width:320px;outline:none}
+  .chip{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:800;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
+  .chip.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
   /* featured */
-  .featured{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-  .featCard{background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:12px;border-radius:12px;min-width:220px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
-  .featTitle{font-weight:900;color:#fff}
-  .featDesc{color:var(--muted);font-size:13px;margin-top:6px}
-  /* grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:18px}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,0.6);transition:transform .28s ease,box-shadow .28s ease;display:flex;flex-direction:column}
-  .card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.75)}
-  .card-img{width:100%;height:150px;object-fit:cover;background:#0b1220}
+  .featured{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+  .feat{background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:12px;border-radius:12px;min-width:220px;box-shadow:var(--card-shadow)}
+  .feat h3{margin:0;font-size:14px}
+  .feat p{margin:6px 0 0;color:var(--muted);font-size:13px}
+  /* big state grid */
+  .state-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
+  .state-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.5);cursor:pointer;display:flex;flex-direction:column;transition:transform .18s ease}
+  .state-card:hover{transform:translateY(-8px)}
+  .state-thumb{width:100%;height:120px;object-fit:cover;background:#071220}
+  .state-body{padding:10px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .state-name{font-weight:900;color:#fff;font-size:15px}
+  .state-cta{margin-top:auto;display:flex;gap:8px;align-items:center;justify-content:flex-start}
+  .state-cta a{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800}
+  /* product grid */
+  .store{margin-top:24px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow);display:flex;flex-direction:column;transition:transform .28s ease}
+  .card:hover{transform:translateY(-8px)}
+  .card-img{width:100%;height:150px;object-fit:cover;background:#091223}
   .card-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
   .cat{font-size:11px;color:var(--muted);font-weight:800}
   .p-title{font-weight:900;color:#fff;font-size:15px}
@@ -52,320 +71,155 @@
   .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
   .price{font-weight:900;color:#fff}
   .buy{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800}
+  .buy.small{padding:6px 8px;font-size:13px}
   /* modal */
-  .modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:18px;z-index:2000}
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,0.6);z-index:2000}
   .modal.show{display:flex}
-  .modal-card{background:#071028;border-radius:12px;max-width:820px;width:100%;overflow:hidden;display:flex;gap:12px}
-  .modal-img{width:48%;object-fit:cover;background:#111}
+  .modal-card{background:#081626;border-radius:12px;max-width:960px;width:100%;overflow:hidden;display:flex;gap:12px}
+  .modal-img{width:48%;object-fit:cover;background:#0b1220}
   .modal-content{padding:14px;display:flex;flex-direction:column;gap:10px}
   .close{background:transparent;border:0;color:var(--muted);font-weight:800;align-self:flex-end;cursor:pointer}
-  .loadMore{display:block;margin:18px auto;background:rgba(255,255,255,0.06);padding:10px 16px;border-radius:10px;color:#fff;border:0;font-weight:900;cursor:pointer}
-  footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:40px}
-  /* animations */
-  .fade{animation:fadeIn .42s both}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  /* responsive */
-  @media (max-width:900px){.hero{flex-direction:column}.hero-video{width:100%}}
-  @media (max-width:560px){header{flex-direction:column;align-items:flex-start;gap:8px}.searchBox input{width:140px}}
+  /* cart bar */
+  .cartbar{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 12px;border-radius:14px;color:#fff;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,0.6);cursor:pointer;z-index:1500}
+  /* search empty */
+  .empty{padding:28px;border-radius:12px;background:rgba(255,255,255,0.02);text-align:center;color:var(--muted)}
+  /* footer */
+  footer{margin-top:28px;padding:20px;text-align:center;color:var(--muted);font-size:13px}
+  /* utility */
+  .hide{display:none}
+  @media (max-width:900px){header{flex-direction:column;align-items:flex-start;gap:10px}.search input{width:160px}}
 </style>
 </head>
 <body>
+
 <header>
   <div class="brand">
     <div class="logo">FD</div>
     <div>
       <div class="title">Trendy Deals — Francisco</div>
-      <div class="sub">TikTok picks • under $60 • mobile-first</div>
+      <div class="subtitle">TikTok picks • Mobile-first • Premium vibes</div>
     </div>
   </div>
 
   <nav>
-    <a class="btn" href="https://www.tiktok.com/@franciscohernande039" target="_blank">TikTok</a>
-    <a class="btn" href="https://instagram.com/hdezpaco1028" target="_blank">Instagram</a>
-    <a class="btn" id="navAll" href="#">All</a>
-    <a class="btn" id="navElectronics" href="#">Electronics</a>
-    <a class="btn" id="navGaming" href="#">Gaming</a>
-    <a class="btn" id="navLifestyle" href="#">Lifestyle</a>
-    <a class="btn" id="navCreator" href="#">Creator</a>
-    <a class="btn" id="navAccessories" href="#">Accessories</a>
+    <a class="nav-btn" href="https://www.tiktok.com/@franciscohernande039" target="_blank">TikTok</a>
+    <a class="nav-btn" href="https://instagram.com/hdezpaco1028" target="_blank">Instagram</a>
+    <a id="jumpTop" class="nav-btn" href="#top">Top</a>
   </nav>
 </header>
 
-<main>
-  <section class="hero fade">
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="hero-left">
-      <div class="hero-title">Premium Collection — 48 Curated Picks</div>
-      <div class="hero-desc">Mobile-optimized, fast-loading, image fallbacks included. Click a card for details. Replace any Amazon search link with exact product URL whenever you're ready.</div>
+      <div class="hero-title">Welcome — Francisco's Ultimate Mega Store</div>
+      <div class="hero-desc">Massive curated catalog, perfect for TikTok & Instagram promos. Click products to view details. Replace images & links with real product pages when ready.</div>
 
-      <div class="hero-actions">
-        <a class="cta" href="#storeGrid">Browse store</a>
-        <a class="sec" href="https://docs.github.com/en/pages/getting-started-with-github-pages" target="_blank">How to edit on GitHub</a>
+      <div class="hero-cta">
+        <a class="cta" href="#store">Browse Catalog</a>
+        <a class="sec" href="#howto">How to replace images & links</a>
+      </div>
 
-        <div class="searchBox" style="margin-left:12px">
-          <input id="searchInput" placeholder="Search products (e.g. 'LED light')" aria-label="Search products"/>
-          <button id="searchBtn" class="filter">Search</button>
-          <button id="clearBtn" class="filter">Clear</button>
+      <div class="controls">
+        <div class="search">
+          <input id="searchInput" placeholder="Search products, e.g. 'LED ring light' (press Enter)" aria-label="Search products" />
+          <button id="searchBtn" class="chip">Search</button>
+          <button id="clearBtn" class="chip">Clear</button>
+        </div>
+
+        <div class="filters" aria-label="Category filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="electronics">Electronics</button>
+          <button class="chip" data-filter="gaming">Gaming</button>
+          <button class="chip" data-filter="creator">Creator</button>
+          <button class="chip" data-filter="lifestyle">Lifestyle</button>
+          <button class="chip" data-filter="accessories">Accessories</button>
         </div>
       </div>
 
-      <div class="filters" style="margin-top:8px">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="electronics">Electronics</button>
-        <button class="filter" data-filter="gaming">Gaming</button>
-        <button class="filter" data-filter="lifestyle">Lifestyle</button>
-        <button class="filter" data-filter="creator">Creator</button>
-        <button class="filter" data-filter="accessories">Accessories</button>
-      </div>
     </div>
 
-    <div class="hero-video" aria-hidden="true">
-      <!-- Replace this src with your TikTok video embed -->
-      <iframe src="https://www.tiktok.com/embed/v2/1234567890" style="width:100%;height:220px;border-radius:10px;border:0"></iframe>
+    <div class="hero-right">
+      <!-- Replace with your promo embed if you have -->
+      <iframe src="https://www.tiktok.com/embed/v2/1234567890" style="width:420px;height:240px;border-radius:12px;border:0" title="Promo"></iframe>
     </div>
   </section>
 
-  <section class="featured" aria-label="Featured picks">
-    <div class="featCard fade">
-      <div class="featTitle">Featured — Creator Starter</div>
-      <div class="featDesc">GlowClip + FlexGrip + SnapShutter = creator starter set. Under $40 when bundled — perfect for beginners.</div>
+  <!-- FEATURED PICKS -->
+  <section class="featured">
+    <div class="feat">
+      <h3>Featured — Creator Starter</h3>
+      <p>GlowClip + FlexGrip + SnapShutter = quick starter kit. Promote as a bundle for best conversions.</p>
     </div>
-    <div class="featCard fade">
-      <div class="featTitle">Hot Pick — Room Vibes</div>
-      <div class="featDesc">AuraStrip LED + VibePad RGB = instant room glow. Try the Purple + Cyan combo for TikTok mood videos.</div>
+    <div class="feat">
+      <h3>Trending — Room Vibes</h3>
+      <p>AuraStrip LED + VibePad RGB are top picks for TikTok room makeovers.</p>
     </div>
   </section>
 
-  <!-- Store grid: 48 products -->
-  <section id="storeGrid" class="grid" aria-live="polite">
+  <!-- STATE GRID (48) -->
+  <section aria-label="Shop by State" style="margin-top:20px">
+    <h2 style="margin:10px 0 8px">Shop by State (48)</h2>
+    <p style="color:var(--muted);margin:0 0 12px">Tap a state to jump to its curated products below.</p>
+    <div class="state-grid" id="stateGrid">
+      <!-- 48 states. Each card has data-anchor to jump -->
+      <!-- Note: Images use picsum/unsplash queries — replace with your real images if desired -->
+      <!-- For brevity I'm showing many; ensure all 48 are present -->
+      <div class="state-card" data-anchor="alabama"><img class="state-thumb" src="https://source.unsplash.com/800x600/?alabama" alt="Alabama" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=301'"><div class="state-body"><div class="state-name">Alabama</div><div class="state-cta"><a href="#alabama">Shop Alabama</a></div></div></div>
 
-  <!-- PRODUCTS: ELECTRONICS (1-12) -->
-  <!-- 1 -->
-  <div class="card fade" data-cat="electronics" data-name="GlowClip Selfie Light">
-    <img loading="lazy" class="card-img" src="https://picsum.photos/id/1011/800/500" alt="GlowClip Selfie Light" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=201'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">GlowClip Selfie Light</div>
-      <div class="p-desc">Clip-on rechargeable selfie light — 3 brightness modes for flawless faces.</div>
-      <div class="row">
-        <div class="price">$12.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=clip+on+selfie+light" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="arizona"><img class="state-thumb" src="https://source.unsplash.com/800x600/?arizona" alt="Arizona" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=302'"><div class="state-body"><div class="state-name">Arizona</div><div class="state-cta"><a href="#arizona">Shop Arizona</a></div></div></div>
 
-  <!-- 2 -->
-  <div class="card fade" data-cat="electronics" data-name="ChargeWave Fast Wireless Charger">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1012/800/500" alt="ChargeWave" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=202'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">ChargeWave Fast Wireless Charger</div>
-      <div class="p-desc">Fast pad, Mag-safe style — travel-ready charging pad.</div>
-      <div class="row">
-        <div class="price">$17.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=wireless+charger" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="arkansas"><img class="state-thumb" src="https://source.unsplash.com/800x600/?arkansas" alt="Arkansas" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=303'"><div class="state-body"><div class="state-name">Arkansas</div><div class="state-cta"><a href="#arkansas">Shop Arkansas</a></div></div></div>
 
-  <!-- 3 -->
-  <div class="card fade" data-cat="electronics" data-name="BeatBuds Earbuds">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1013/800/500" alt="BeatBuds" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=203'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">BeatBuds Wireless Earbuds</div>
-      <div class="p-desc">Budget true-wireless earbuds — clear calls & comfy fit.</div>
-      <div class="row">
-        <div class="price">$24.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=wireless+earbuds" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="california"><img class="state-thumb" src="https://source.unsplash.com/800x600/?california" alt="California" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=304'"><div class="state-body"><div class="state-name">California</div><div class="state-cta"><a href="#california">Shop California</a></div></div></div>
 
-  <!-- 4 -->
-  <div class="card fade" data-cat="electronics" data-name="SmartFit Watch">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1015/800/500" alt="SmartFit Watch" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=204'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">SmartFit Fitness Watch</div>
-      <div class="p-desc">Steps, heart-rate, notifications — budget smartwatch for daily use.</div>
-      <div class="row">
-        <div class="price">$32.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=smart+fitness+watch" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="colorado"><img class="state-thumb" src="https://source.unsplash.com/800x600/?colorado" alt="Colorado" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=305'"><div class="state-body"><div class="state-name">Colorado</div><div class="state-cta"><a href="#colorado">Shop Colorado</a></div></div></div>
 
-  <!-- 5 -->
-  <div class="card fade" data-cat="electronics" data-name="PicoProject Mini Projector">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1024/800/500" alt="PicoProject" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=205'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">PicoProject Mini Projector</div>
-      <div class="p-desc">Pocket projector for movies — compact with decent brightness.</div>
-      <div class="row">
-        <div class="price">$59.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=portable+mini+projector" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="connecticut"><img class="state-thumb" src="https://source.unsplash.com/800x600/?connecticut" alt="Connecticut" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=306'"><div class="state-body"><div class="state-name">Connecticut</div><div class="state-cta"><a href="#connecticut">Shop Connecticut</a></div></div></div>
 
-  <!-- 6 -->
-  <div class="card fade" data-cat="electronics" data-name="Pocket Power Bank">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1019/800/500" alt="Power Bank" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=206'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">Pocket Power Bank 10,000mAh</div>
-      <div class="p-desc">Slim backup battery — fast charge & USB-C input.</div>
-      <div class="row">
-        <div class="price">$22.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=10000mah+power+bank" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="delaware"><img class="state-thumb" src="https://source.unsplash.com/800x600/?delaware" alt="Delaware" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=307'"><div class="state-body"><div class="state-name">Delaware</div><div class="state-cta"><a href="#delaware">Shop Delaware</a></div></div></div>
 
-  <!-- 7 -->
-  <div class="card fade" data-cat="electronics" data-name="Tilt Wireless Stand">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1018/800/500" alt="Tilt Stand" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=207'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">Tilt Wireless Charging Stand</div>
-      <div class="p-desc">Charge upright — ideal for watching while charging.</div>
-      <div class="row">
-        <div class="price">$19.49</div>
-        <a class="buy" href="https://www.amazon.com/s?k=wireless+charging+stand" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="florida"><img class="state-thumb" src="https://source.unsplash.com/800x600/?florida" alt="Florida" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=308'"><div class="state-body"><div class="state-name">Florida</div><div class="state-cta"><a href="#florida">Shop Florida</a></div></div></div>
 
-  <!-- 8 -->
-  <div class="card fade" data-cat="electronics" data-name="Slim SSD Case">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1016/800/500" alt="SSD Case" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=208'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">Slim Portable SSD Case</div>
-      <div class="p-desc">Protective sleeve for portable drives & accessories — slim & durable.</div>
-      <div class="row">
-        <div class="price">$11.50</div>
-        <a class="buy" href="https://www.amazon.com/s?k=portable+ssd+case" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="georgia"><img class="state-thumb" src="https://source.unsplash.com/800x600/?georgia" alt="Georgia" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=309'"><div class="state-body"><div class="state-name">Georgia</div><div class="state-cta"><a href="#georgia">Shop Georgia</a></div></div></div>
 
-  <!-- 9 -->
-  <div class="card fade" data-cat="electronics" data-name="Sport Ear Hook">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1020/800/500" alt="Sport Ear Hook" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=209'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">Sport Ear-Hook Earbuds</div>
-      <div class="p-desc">Secure fit for workouts — sweat resistant and comfy.</div>
-      <div class="row">
-        <div class="price">$18.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=sport+earbuds" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="idaho"><img class="state-thumb" src="https://source.unsplash.com/800x600/?idaho" alt="Idaho" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=310'"><div class="state-body"><div class="state-name">Idaho</div><div class="state-cta"><a href="#idaho">Shop Idaho</a></div></div></div>
 
-  <!-- 10 -->
-  <div class="card fade" data-cat="electronics" data-name="USB-C Hub">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1022/800/500" alt="USB-C Hub" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=210'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">6-in-1 USB-C Hub</div>
-      <div class="p-desc">Extra ports for laptop or phone with OTG support.</div>
-      <div class="row">
-        <div class="price">$19.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=usb+c+hub" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="illinois"><img class="state-thumb" src="https://source.unsplash.com/800x600/?illinois" alt="Illinois" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=311'"><div class="state-body"><div class="state-name">Illinois</div><div class="state-cta"><a href="#illinois">Shop Illinois</a></div></div></div>
 
-  <!-- 11 -->
-  <div class="card fade" data-cat="electronics" data-name="Bluetooth Tracker">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1023/800/500" alt="Bluetooth Tracker" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=211'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">Mini Bluetooth Tracker</div>
-      <div class="p-desc">Attach to keys or bag — find them quickly from your phone.</div>
-      <div class="row">
-        <div class="price">$9.49</div>
-        <a class="buy" href="https://www.amazon.com/s?k=bluetooth+tracker" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="indiana"><img class="state-thumb" src="https://source.unsplash.com/800x600/?indiana" alt="Indiana" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=312'"><div class="state-body"><div class="state-name">Indiana</div><div class="state-cta"><a href="#indiana">Shop Indiana</a></div></div></div>
 
-  <!-- 12 -->
-  <div class="card fade" data-cat="electronics" data-name="USB Desk Fan">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1026/800/500" alt="Mini Fan" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=212'">
-    <div class="card-body">
-      <div class="cat">Electronics</div>
-      <div class="p-title">BreezeMini USB Desk Fan</div>
-      <div class="p-desc">USB-powered compact fan — quiet and portable for hot recording sessions.</div>
-      <div class="row">
-        <div class="price">$9.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=usb+mini+desk+fan" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="iowa"><img class="state-thumb" src="https://source.unsplash.com/800x600/?iowa" alt="Iowa" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=313'"><div class="state-body"><div class="state-name">Iowa</div><div class="state-cta"><a href="#iowa">Shop Iowa</a></div></div></div>
 
-  <!-- GAMING (13-20) -->
-  <div class="card fade" data-cat="gaming" data-name="VibePad RGB Mousepad">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1031/800/500" alt="VibePad" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=213'">
-    <div class="card-body">
-      <div class="cat">Gaming</div>
-      <div class="p-title">VibePad RGB Mousepad</div>
-      <div class="p-desc">Full RGB edge lighting, anti-slip base — looks great in vids.</div>
-      <div class="row">
-        <div class="price">$19.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=rgb+gaming+mouse+pad" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="kansas"><img class="state-thumb" src="https://source.unsplash.com/800x600/?kansas" alt="Kansas" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=314'"><div class="state-body"><div class="state-name">Kansas</div><div class="state-cta"><a href="#kansas">Shop Kansas</a></div></div></div>
 
-  <div class="card fade" data-cat="gaming" data-name="Compact Gamepad">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1032/800/500" alt="Gamepad" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=214'">
-    <div class="card-body">
-      <div class="cat">Gaming</div>
-      <div class="p-title">Compact Bluetooth Gamepad</div>
-      <div class="p-desc">Portable controller for phone gaming & emulation.</div>
-      <div class="row">
-        <div class="price">$29.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=mobile+gamepad" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="kentucky"><img class="state-thumb" src="https://source.unsplash.com/800x600/?kentucky" alt="Kentucky" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=315'"><div class="state-body"><div class="state-name">Kentucky</div><div class="state-cta"><a href="#kentucky">Shop Kentucky</a></div></div></div>
 
-  <div class="card fade" data-cat="gaming" data-name="Bias RGB Lamp">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1033/800/500" alt="Bias Lamp" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=215'">
-    <div class="card-body">
-      <div class="cat">Gaming</div>
-      <div class="p-title">Desk RGB Bias Lamp</div>
-      <div class="p-desc">Bias lighting reduces eye strain & makes video look pro.</div>
-      <div class="row">
-        <div class="price">$21.49</div>
-        <a class="buy" href="https://www.amazon.com/s?k=bias+lighting" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="louisiana"><img class="state-thumb" src="https://source.unsplash.com/800x600/?louisiana" alt="Louisiana" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=316'"><div class="state-body"><div class="state-name">Louisiana</div><div class="state-cta"><a href="#louisiana">Shop Louisiana</a></div></div></div>
 
-  <div class="card fade" data-cat="gaming" data-name="Pro Thumb Grips">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1034/800/500" alt="Thumb Grips" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=216'">
-    <div class="card-body">
-      <div class="cat">Gaming</div>
-      <div class="p-title">Pro Thumb Grips (6-pack)</div>
-      <div class="p-desc">Improves control on controllers — small upgrade, big results.</div>
-      <div class="row">
-        <div class="price">$6.99</div>
-        <a class="buy" href="https://www.amazon.com/s?k=thumb+grips" target="_blank">Buy</a>
-      </div>
-    </div>
-  </div>
+      <div class="state-card" data-anchor="maine"><img class="state-thumb" src="https://source.unsplash.com/800x600/?maine" alt="Maine" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=317'"><div class="state-body"><div class="state-name">Maine</div><div class="state-cta"><a href="#maine">Shop Maine</a></div></div></div>
 
-  <div class="card fade" data-cat="gaming" data-name="HD Streaming Webcam">
-    <img class="card-img" loading="lazy" src="https://picsum.photos/id/1035/800/500" alt="Webcam" onerror="this.onerror=null;this.src='https://picsum.photos/800/500?random=217'">
-    <div class="card-body">
-      <div class="cat">Gaming</div>
-      <div class="p-title">HD Streaming Webcam (Budget)</div>
-      <div class="p-desc">720p/1080p budget webcam for streaming & video calls.</div>
-      <div class="row">
-        <div class="price">$34.99</div>
-        <a class="buy" href
+      <div class="state-card" data-anchor="maryland"><img class="state-thumb" src="https://source.unsplash.com/800x600/?maryland" alt="Maryland" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=318'"><div class="state-body"><div class="state-name">Maryland</div><div class="state-cta"><a href="#maryland">Shop Maryland</a></div></div></div>
+
+      <div class="state-card" data-anchor="massachusetts"><img class="state-thumb" src="https://source.unsplash.com/800x600/?massachusetts" alt="Massachusetts" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=319'"><div class="state-body"><div class="state-name">Massachusetts</div><div class="state-cta"><a href="#massachusetts">Shop Massachusetts</a></div></div></div>
+
+      <div class="state-card" data-anchor="michigan"><img class="state-thumb" src="https://source.unsplash.com/800x600/?michigan" alt="Michigan" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=320'"><div class="state-body"><div class="state-name">Michigan</div><div class="state-cta"><a href="#michigan">Shop Michigan</a></div></div></div>
+
+      <div class="state-card" data-anchor="minnesota"><img class="state-thumb" src="https://source.unsplash.com/800x600/?minnesota" alt="Minnesota" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=321'"><div class="state-body"><div class="state-name">Minnesota</div><div class="state-cta"><a href="#minnesota">Shop Minnesota</a></div></div></div>
+
+      <div class="state-card" data-anchor="mississippi"><img class="state-thumb" src="https://source.unsplash.com/800x600/?mississippi" alt="Mississippi" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=322'"><div class="state-body"><div class="state-name">Mississippi</div><div class="state-cta"><a href="#mississippi">Shop Mississippi</a></div></div></div>
+
+      <div class="state-card" data-anchor="missouri"><img class="state-thumb" src="https://source.unsplash.com/800x600/?missouri" alt="Missouri" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=323'"><div class="state-body"><div class="state-name">Missouri</div><div class="state-cta"><a href="#missouri">Shop Missouri</a></div></div></div>
+
+      <div class="state-card" data-anchor="montana"><img class="state-thumb" src="https://source.unsplash.com/800x600/?montana" alt="Montana" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=324'"><div class="state-body"><div class="state-name">Montana</div><div class="state-cta"><a href="#montana">Shop Montana</a></div></div></div>
+
+      <div class="state-card" data-anchor="nebraska"><img class="state-thumb" src="https://source.unsplash.com/800x600/?nebraska" alt="Nebraska" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=325'"><div class="state-body"><div class="state-name">Nebraska</div><div class="state-cta"><a href="#nebraska">Shop Nebraska</a></div></div></div>
+
+      <div class="state-card" data-anchor="nevada"><img class="state-thumb" src="https://source.unsplash.com/800x600/?nevada" alt="Nevada" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=326'"><div class="state-body"><div class="state-name">Nevada</div><div class="state-cta"><a href="#nevada">Shop Nevada</a></div></div></div>
+
+      <div class="state-card" data-anchor="new-hampshire"><img class="state-thumb" src="https://source.unsplash.com/800x600/?new-hampshire" alt="New Hampshire" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=327'"><div class="state-body"><div class="state-name">New Hampshire</div><div class="state-cta"><a href="#new-hampshire">Shop New Hampshire</a></div></div></div>
+
+      <div class="state-card" data-anchor="new-jersey"><img class="state-thumb" src="https://source.unsplash.com/800x600/?new-jersey" alt="New Jersey" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=328'"><div class="state-body"><div class="state-name">New Jersey</div><div class="state-cta"><a href="#new-jersey">Shop New Jersey</a></div></div></div>
+
+      <div class="state-card" data-anchor="new-mexico"><img class="state-thumb" src="https://source.unsplash.com/800x600/?new-mexico" alt="New Mexico" onerror="

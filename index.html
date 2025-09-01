@@ -3,94 +3,57 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Trendy Deals — Francisco's Mega Shop</title>
-<meta name="description" content="Trendy Deals — curated gadgets, creator tools, lifestyle picks. TikTok @franciscohernande039" />
+<title>Trendy Deals — Francisco's Store</title>
+<meta name="description" content="Trendy Deals — curated gadgets & creator picks. TikTok @franciscohernande039 | IG @hdezpaco1028" />
 <style>
-  /* ---------- THEME & LAYOUT ---------- */
   :root{
-    --bg-dark: #061428;
-    --panel-dark: #0d2030;
-    --muted-dark: #9fb5c9;
-    --text-dark: #eaf5ff;
-    --bg-light: #f4f7fb;
-    --panel-light: #ffffff;
-    --muted-light: #6b7785;
-    --text-light: #0a1220;
-    --accent1: #ff5aa5;
-    --accent2: #45d1ff;
-    --glass: rgba(255,255,255,0.03);
-    --radius: 12px;
-    --maxw: 1200px;
-    --card-shadow: 0 14px 40px rgba(2,6,23,0.6);
+    --bg:#041525;
+    --panel:#082839;
+    --muted:#9fb5c9;
+    --accent1:#ff5aa5;
+    --accent2:#45d1ff;
+    --card-radius:12px;
+    --maxw:1180px;
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text-dark);background:linear-gradient(180deg,var(--bg-dark),#021026);-webkit-font-smoothing:antialiased}
-  body.light{color:var(--text-light);background:var(--bg-light)}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#e8f6ff;background:linear-gradient(180deg,var(--bg),#021224);-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  /* header */
-  header{position:sticky;top:0;z-index:1000;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 8px 30px rgba(0,0,0,0.25)}
-  .brand{display:flex;gap:12px;align-items:center}
-  .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff}
-  .title{font-weight:900;color:#fff;font-size:18px}
-  .subtitle{font-size:12px;color:rgba(255,255,255,0.95)}
-  .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-  .nav a, .nav button{background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800;border:0;cursor:pointer}
-  /* container */
+  header{position:sticky;top:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;z-index:1000}
+  .brand{display:flex;gap:10px;align-items:center}
+  .logo{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;background:rgba(255,255,255,0.12)}
+  .title{font-weight:900;color:#fff}
+  nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .nav-btn{background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800;border:0}
   main{max-width:var(--maxw);margin:18px auto;padding:12px}
-  .hero{display:flex;gap:16px;align-items:flex-start;background:var(--glass);padding:14px;border-radius:var(--radius);box-shadow:var(--card-shadow);flex-wrap:wrap}
-  .hero .left{flex:1;min-width:240px}
-  .hero h1{margin:0;font-size:20px}
-  .hero p{margin:6px 0 0;color:var(--muted-dark)}
-  .cta{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-  .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;padding:10px 14px;border-radius:12px;font-weight:900;text-decoration:none}
-  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#fff}
-  /* controls */
-  .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
-  .search{display:flex;gap:8px;align-items:center}
-  .search input{padding:10px 12px;border-radius:10px;border:0;background:rgba(255,255,255,0.03);color:inherit;outline:none;width:260px}
-  .chip{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted-dark);font-weight:800;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
+  .hero{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,0.02);padding:14px;border-radius:12px}
+  .hero h1{margin:0;color:#fff;font-size:20px}
+  .hero p{margin:6px 0 0;color:var(--muted)}
+  .controls{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
+  .search input{padding:9px 12px;border-radius:10px;border:0;background:rgba(255,255,255,0.03);color:#fff;outline:none;width:260px}
+  .chip{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:800;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
   .chip.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
-  /* grid */
-  .section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 8px}
-  .state-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}
-  .state-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:10px;overflow:hidden;cursor:pointer;box-shadow:var(--card-shadow);display:flex;flex-direction:column;min-height:140px;transition:transform .18s}
-  .state-card:hover{transform:translateY(-6px)}
-  .state-card img{width:100%;height:90px;object-fit:cover;background:#071220}
-  .state-body{padding:8px;display:flex;flex-direction:column;gap:6px;flex:1}
-  .state-name{font-weight:900;color:#fff;font-size:14px}
-  .state-card a{margin-top:auto;text-decoration:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px;border-radius:8px;color:#fff;font-weight:900;text-align:center;display:inline-block}
-  /* product grid */
+  .section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:18px 0 8px;color:#fff}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow);display:flex;flex-direction:column;transition:transform .24s}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--card-radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 36px rgba(0,0,0,0.45);transition:transform .18s}
   .card:hover{transform:translateY(-8px)}
-  .card img{width:100%;height:150px;object-fit:cover;background:#071220}
+  .card img{width:100%;height:150px;object-fit:cover;background:#061827}
   .card-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .cat{font-size:11px;color:var(--muted-dark);font-weight:800}
+  .cat{font-size:11px;color:var(--muted);font-weight:800}
   .p-title{font-weight:900;color:#fff}
-  .p-desc{color:var(--muted-dark);font-size:13px;flex:1}
-  .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .price{font-weight:900;color:#fff'}
+  .p-desc{color:var(--muted);font-size:13px;flex:1}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .price{font-weight:900;color:#fff}
   .buy{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:900}
-  .buy.small{padding:6px 8px}
-  /* modal */
-  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,0.6);z-index:3000}
+  .view{background:rgba(255,255,255,0.03);padding:8px;border-radius:10px;border:0;color:#fff;cursor:pointer;font-weight:800}
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:2000;padding:18px}
   .modal.show{display:flex}
-  .modal-card{background:var(--panel-dark);border-radius:12px;max-width:980px;width:100%;overflow:hidden;display:flex;gap:12px}
-  body.light .modal-card{background:var(--panel-light)}
-  .modal-img{width:48%;object-fit:cover;background:#0b1220}
-  .modal-content{padding:14px;display:flex;flex-direction:column;gap:10px}
-  .close{background:transparent;border:0;color:var(--muted-dark);font-weight:800;cursor:pointer;align-self:flex-end}
-  /* cart */
-  .cartbar{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:14px;color:#fff;font-weight:900;cursor:pointer;box-shadow:0 12px 36px rgba(0,0,0,0.5);z-index:2500}
-  /* cart drawer content */
-  .cart-card{background:var(--panel-dark);border-radius:12px;padding:12px;min-width:320px;max-width:420px;color:var(--text-dark);box-shadow:var(--card-shadow)}
-  .cart-item{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
-  .cart-item img{width:56px;height:42px;object-fit:cover;border-radius:6px}
-  .cart-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:10px}
-  /* footer */
-  footer{margin-top:26px;padding:20px;text-align:center;color:var(--muted-dark)}
-  /* responsive */
-  @media (max-width:900px){.hero{flex-direction:column}.search input{width:160px}.modal-card{flex-direction:column}.modal-img{width:100%;height:260px}}
+  .modal-card{background:var(--panel);border-radius:12px;max-width:900px;width:100%;display:flex;gap:12px;overflow:hidden}
+  .modal-img{width:48%;object-fit:cover;background:#071827}
+  .modal-content{padding:14px;color:#fff;display:flex;flex-direction:column;gap:8px}
+  .close{border:0;background:transparent;color:var(--muted);font-weight:800;cursor:pointer;align-self:flex-end}
+  .cartbar{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:14px;color:#fff;font-weight:900;cursor:pointer;z-index:1500}
+  footer{margin-top:28px;padding:20px;text-align:center;color:var(--muted)}
+  @media (max-width:800px){.hero{flex-direction:column}.search input{width:160px}.modal-card{flex-direction:column}.modal-img{width:100%;height:260px}}
 </style>
 </head>
 <body>
@@ -99,119 +62,89 @@
     <div class="logo">FD</div>
     <div>
       <div class="title">Trendy Deals — Francisco</div>
-      <div class="subtitle">Curated picks • Mobile-first • Creator-ready</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.95)">TikTok: @franciscohernande039 • IG: @hdezpaco1028</div>
     </div>
   </div>
 
-  <div class="nav" role="navigation" aria-label="Top navigation">
-    <a class="nav-link" href="#store">All</a>
-    <a class="nav-link" href="#electronics">Electronics</a>
-    <a class="nav-link" href="#gaming">Gaming</a>
-    <a class="nav-link" href="#creator">Creator</a>
-    <a class="nav-link" href="#lifestyle">Lifestyle</a>
-    <button id="themeToggle" aria-pressed="false" aria-label="Toggle color theme">Dark/Light</button>
-    <a style="margin-left:8px" class="nav-link" href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener">TikTok</a>
-    <a class="nav-link" href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener">Instagram</a>
-  </div>
+  <nav>
+    <a class="nav-btn" href="#store">Catalog</a>
+    <a class="nav-btn" href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener">TikTok</a>
+    <a class="nav-btn" href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener">Instagram</a>
+    <button id="themeToggle" class="nav-btn" aria-pressed="false">Toggle</button>
+  </nav>
 </header>
 
-<main id="main">
+<main>
   <section class="hero" aria-labelledby="heroTitle">
     <div class="left">
-      <h1 id="heroTitle">Francisco's Mega Store — Curated Deals</h1>
-      <p id="catalogHint">72 curated items across categories. Everything is ready to use — Buy buttons open Amazon search pages for the product term (replace with exact links later for best conversion).</p>
+      <h1 id="heroTitle">Francisco's Mega Shop — Works Now</h1>
+      <p>All Buy buttons open Amazon search results for each product term. Replace with exact product pages later when you have them.</p>
 
-      <div class="cta">
-        <a class="btn" href="#store">Browse Catalog</a>
-        <a class="btn ghost" href="#howto">How to replace images & links</a>
-      </div>
-
-      <div class="controls" role="region" aria-label="Search and filters">
+      <div class="controls">
         <div class="search" role="search">
-          <input id="searchInput" placeholder="Search product name or description (press Enter)" aria-label="Search products" />
-          <button id="searchBtn" class="chip" aria-label="Search button">Search</button>
-          <button id="clearBtn" class="chip" aria-label="Clear search">Clear</button>
+          <input id="searchInput" placeholder="Search products (press Enter)" aria-label="Search products" />
+          <button id="searchBtn" class="chip">Search</button>
+          <button id="clearBtn" class="chip">Clear</button>
         </div>
 
-        <div id="filterChips" style="display:flex;gap:8px;align-items:center">
-          <div class="chip active" data-filter="all" role="button" tabindex="0">All</div>
-          <div class="chip" data-filter="electronics" role="button" tabindex="0">Electronics</div>
-          <div class="chip" data-filter="gaming" role="button" tabindex="0">Gaming</div>
-          <div class="chip" data-filter="creator" role="button" tabindex="0">Creator</div>
-          <div class="chip" data-filter="lifestyle" role="button" tabindex="0">Lifestyle</div>
-          <div class="chip" data-filter="accessories" role="button" tabindex="0">Accessories</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="chip active" data-filter="all">All</div>
+          <div class="chip" data-filter="electronics">Electronics</div>
+          <div class="chip" data-filter="gaming">Gaming</div>
+          <div class="chip" data-filter="creator">Creator</div>
+          <div class="chip" data-filter="lifestyle">Lifestyle</div>
+          <div class="chip" data-filter="accessories">Accessories</div>
         </div>
       </div>
     </div>
-
-    <div class="right" style="min-width:260px">
-      <!-- Optional: replace with your TikTok embed or promo -->
-      <div style="background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;text-align:center;">
-        <div style="font-weight:900;color:#fff">Follow Francisco</div>
-        <div style="color:var(--muted-dark);margin-top:6px">@franciscohernande039 • @hdezpaco1028</div>
+    <div style="min-width:220px">
+      <div style="background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;text-align:center;color:#fff">
+        <div style="font-weight:900">Follow Francisco</div>
+        <div style="color:var(--muted);margin-top:6px">@franciscohernande039<br>@hdezpaco1028</div>
       </div>
     </div>
   </section>
 
-  <!-- Quick States (short list) -->
-  <section aria-labelledby="statesTitle" style="margin-top:18px">
-    <h2 id="statesTitle" style="margin:0 0 6px">Shop by State (quick links)</h2>
-    <p style="color:var(--muted-dark);margin:0 0 10px">Tap a state to jump to the store. (State-specific pages can be generated later.)</p>
-    <div class="state-grid" id="stateGrid" aria-hidden="false">
-      <div class="state-card"><img src="https://picsum.photos/seed/state1/800/600" alt="Alabama" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=901'"><div class="state-body"><div class="state-name">Alabama</div><a href="#store">Shop</a></div></div>
-      <div class="state-card"><img src="https://picsum.photos/seed/state2/800/600" alt="California" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=902'"><div class="state-body"><div class="state-name">California</div><a href="#store">Shop</a></div></div>
-      <div class="state-card"><img src="https://picsum.photos/seed/state3/800/600" alt="Texas" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=903'"><div class="state-body"><div class="state-name">Texas</div><a href="#store">Shop</a></div></div>
-      <div class="state-card"><img src="https://picsum.photos/seed/state4/800/600" alt="Florida" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=904'"><div class="state-body"><div class="state-name">Florida</div><a href="#store">Shop</a></div></div>
-      <div class="state-card"><img src="https://picsum.photos/seed/state5/800/600" alt="New York" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=905'"><div class="state-body"><div class="state-name">New York</div><a href="#store">Shop</a></div></div>
-      <div class="state-card"><img src="https://picsum.photos/seed/state6/800/600" alt="Illinois" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=906'"><div class="state-body"><div class="state-name">Illinois</div><a href="#store">Shop</a></div></div>
-    </div>
-  </section>
-
-  <!-- STORE: product area is generated by JS from a data array -->
-  <section id="store" style="margin-top:18px">
+  <section style="margin-top:18px" id="store">
     <div class="section-title">
-      <h2 style="margin:0">Catalog — Curated Picks</h2>
-      <div style="color:var(--muted-dark)">Buy buttons open Amazon search results for now. Replace with exact product URLs later.</div>
+      <h2 style="margin:0;color:#fff">Catalog — Working Version</h2>
+      <div style="color:var(--muted)">Click any card's "Buy" to open Amazon search for that item.</div>
     </div>
 
-    <!-- controls -->
-    <div style="display:flex;gap:8px;align-items:center;margin:8px 0 16px;flex-wrap:wrap">
-      <div class="chip" id="sortPrice" role="button" tabindex="0">Sort: Price</div>
-      <div class="chip" id="sortAZ" role="button" tabindex="0">Sort: A → Z</div>
-      <div class="chip" id="resetSort" role="button" tabindex="0">Reset</div>
+    <div style="display:flex;gap:8px;margin-bottom:8px">
+      <div class="chip" id="sortPrice">Sort by price</div>
+      <div class="chip" id="sortAZ">Sort A→Z</div>
+      <div class="chip" id="resetSort">Reset</div>
     </div>
 
-    <div id="productGrid" class="grid" aria-live="polite"></div>
+    <div id="productGrid" class="grid" aria-live="polite" role="list"></div>
 
-    <div class="center" style="margin-top:14px">
-      <button id="loadMore" class="chip">Load more products</button>
+    <div style="text-align:center;margin-top:14px">
+      <button id="loadMore" class="chip">Load more</button>
     </div>
   </section>
 
-  <!-- HOWTO: instructions -->
-  <section id="howto" style="margin-top:22px">
-    <h3>How to replace placeholders & swap to exact product links (quick)</h3>
-    <ol style="color:var(--muted-dark);line-height:1.6">
-      <li>Upload product images to your GitHub repo: Repo → Add file → Upload files → Commit.</li>
-      <li>Open the uploaded image, click <strong>Raw</strong>, copy raw URL (looks like <code>https://raw.githubusercontent.com/USERNAME/REPO/main/image.jpg</code>).</li>
-      <li>Edit <code>index.html</code> and in the <code>products</code> array (near the top of &lt;script&gt;) set the product's <code>img</code> value to that raw URL.</li>
-      <li>To replace Buy links: set <code>product.amazon</code> to the exact Amazon product page URL (or add your affiliate tag).</li>
+  <section id="howto" style="margin-top:22px;color:var(--muted)">
+    <h3>How to replace placeholders</h3>
+    <ol>
+      <li>Upload images to your GitHub repo (Repo → Add file → Upload files → Commit).</li>
+      <li>Open uploaded image → click Raw → copy raw URL (https://raw.githubusercontent.com/USERNAME/REPO/main/image.jpg).</li>
+      <li>Edit this file: find the product in the <code>products</code> array and set <code>img: 'RAW_URL'</code> and <code>amazon: 'EXACT_AMAZON_URL'</code>.</li>
     </ol>
   </section>
-
 </main>
 
-<!-- product modal -->
-<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Product details dialog">
-  <div class="modal-card" role="document">
+<!-- modal -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog">
+  <div class="modal-card" role="document" style="background:#082839;">
     <img id="modalImg" class="modal-img" src="" alt="Product image" />
     <div class="modal-content">
-      <button id="modalClose" class="close" aria-label="Close">CLOSE ✕</button>
-      <div id="modalCat" style="font-size:12px;color:var(--muted-dark)"></div>
-      <div id="modalTitle" style="font-weight:900;font-size:20px"></div>
-      <div id="modalDesc" style="color:var(--muted-dark);font-size:14px"></div>
+      <button id="modalClose" class="close">CLOSE ✕</button>
+      <div id="modalCat" style="font-size:12px;color:var(--muted)"></div>
+      <div id="modalTitle" style="font-weight:900;font-size:20px;color:#fff"></div>
+      <div id="modalDesc" style="color:var(--muted)"></div>
       <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
-        <div id="modalPrice" style="font-weight:900;font-size:18px"></div>
+        <div id="modalPrice" style="font-weight:900;color:#fff"></div>
         <a id="modalBuy" class="buy" href="#" target="_blank" rel="noopener">Open on Amazon</a>
         <button id="modalAdd" class="chip">Add to demo cart</button>
       </div>
@@ -219,51 +152,128 @@
   </div>
 </div>
 
-<!-- cart overlay (re-uses modal layout) -->
-<div id="cartOverlay" class="modal" aria-hidden="true" role="dialog" aria-label="Cart dialog">
-  <div class="modal-card cart-card" role="document" style="flex-direction:column;max-width:420px;">
-    <button id="cartClose" class="close" aria-label="Close cart">CLOSE ✕</button>
-    <div style="font-weight:900;font-size:18px">Your Demo Cart</div>
-    <div id="cartItems" style="margin-top:8px"></div>
-    <div class="cart-actions">
-      <div id="cartTotal" style="font-weight:900"></div>
-      <div style="flex:1"></div>
-      <button id="clearCart" class="chip">Clear</button>
-      <button id="checkout" class="buy">Checkout</button>
-    </div>
-  </div>
-</div>
-
-<div id="cartBar" class="cartbar" role="button" aria-label="Open cart">Cart (0)</div>
+<div id="cartBar" class="cartbar" role="button">Cart (0)</div>
 
 <footer>
-  © 2025 Trendy Deals — Follow on TikTok <a href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">@franciscohernande039</a> & Instagram <a href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">@hdezpaco1028</a>. Prices shown are examples — check product pages for live pricing.
+  © 2025 Trendy Deals — Follow: <a href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">@franciscohernande039</a> &amp; <a href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">@hdezpaco1028</a>. Buttons open live Amazon search pages.
 </footer>
 
 <script>
-/* ======================
-   PRODUCT DATA (72 items)
-   - id, name, category, price, img, amazon, desc
-   - Replace img with your raw github url and amazon with exact product link for production.
-   ====================== */
-const products = [
-  /* ELECTRONICS (1-12) */
-  {id:1, name:"GlowClip Selfie Light", category:"electronics", price:12.99, img:"https://picsum.photos/seed/p1/800/500", amazon:"https://www.amazon.com/s?k=clip+on+selfie+light", desc:"Clip-on selfie light with adjustable brightness — perfect for phone videos."},
-  {id:2, name:"ChargeWave Wireless Charger", category:"electronics", price:17.99, img:"https://picsum.photos/seed/p2/800/500", amazon:"https://www.amazon.com/s?k=wireless+charger", desc:"Slim wireless charging pad, Qi compatible."},
-  {id:3, name:"BeatBuds Wireless Earbuds", category:"electronics", price:24.99, img:"https://picsum.photos/seed/p3/800/500", amazon:"https://www.amazon.com/s?k=wireless+earbuds", desc:"Budget true wireless earbuds with decent battery life."},
-  {id:4, name:"PicoProject Mini Projector", category:"electronics", price:59.99, img:"https://picsum.photos/seed/p4/800/500", amazon:"https://www.amazon.com/s?k=pico+projector", desc:"Compact mini projector for movies and streaming on the go."},
-  {id:5, name:"Pocket Power Bank 10000mAh", category:"electronics", price:22.99, img:"https://picsum.photos/seed/p5/800/500", amazon:"https://www.amazon.com/s?k=10000mah+power+bank", desc:"Slim power bank with fast-charging support."},
-  {id:6, name:"Tilt Wireless Charging Stand", category:"electronics", price:19.49, img:"https://picsum.photos/seed/p6/800/500", amazon:"https://www.amazon.com/s?k=wireless+charging+stand", desc:"Phone stand with wireless charging — great for vertical video."},
-  {id:7, name:"USB-C Hub 6-in-1", category:"electronics", price:19.99, img:"https://picsum.photos/seed/p7/800/500", amazon:"https://www.amazon.com/s?k=usb+c+hub", desc:"Expand a laptop with HDMI, USB-A, SD card and more."},
-  {id:8, name:"Mini Bluetooth Tracker", category:"electronics", price:9.49, img:"https://picsum.photos/seed/p8/800/500", amazon:"https://www.amazon.com/s?k=bluetooth+tracker", desc:"Tiny tracker for keys, bags and wallets."},
-  {id:9, name:"Slim Portable SSD Case", category:"electronics", price:11.50, img:"https://picsum.photos/seed/p9/800/500", amazon:"https://www.amazon.com/s?k=portable+ssd+case", desc:"Protective case for portable SSDs and small drives."},
-  {id:10, name:"MagSafe Compatible Wallet", category:"electronics", price:15.99, img:"https://picsum.photos/seed/p10/800/500", amazon:"https://www.amazon.com/s?k=magsafe+wallet", desc:"Slim magnetic wallet for modern phones."},
-  {id:11, name:"Bluetooth FM Transmitter", category:"electronics", price:13.99, img:"https://picsum.photos/seed/p11/800/500", amazon:"https://www.amazon.com/s?k=bluetooth+fm+transmitter", desc:"Stream audio to older car stereos via FM."},
-  {id:12, name:"LED Desk Lamp with USB", category:"electronics", price:18.49, img:"https://picsum.photos/seed/p12/800/500", amazon:"https://www.amazon.com/s?k=led+desk+lamp+usb", desc:"Adjustable desk lamp with USB outlet."},
+/* ======== Robust working approach (DOM-based, no innerHTML templates) ======== */
 
-  /* GAMING (13-20) */
-  {id:13, name:"VibePad RGB Mousepad", category:"gaming", price:19.99, img:"https://picsum.photos/seed/p13/800/500", amazon:"https://www.amazon.com/s?k=rgb+gaming+mouse+pad", desc:"Large RGB mousepad with soft edges."},
-  {id:14, name:"Compact Bluetooth Gamepad", category:"gaming", price:29.99, img:"https://picsum.photos/seed/p14/800/500", amazon:"https://www.amazon.com/s?k=mobile+gamepad", desc:"Portable controller for mobile gaming."},
-  {id:15, name:"Pro Thumb Grips (6-pack)", category:"gaming", price:6.99, img:"https://picsum.photos/seed/p15/800/500", amazon:"https://www.amazon.com/s?k=thumb+grips", desc:"Improve analog stick control on controllers."},
-  {id:16, name:"Desk RGB Bias Lamp", category:"gaming", price:21.49, img:"https://picsum.photos/seed/p16/800/500", amazon:"https://www.amazon.com/s?k=bias+lighting", desc:"Bias lighting for reduced eye strain and better contrast."},
-  {id:17, name:"Budget HD Streaming Webcam", category:"gaming", price:34.99, img:"https://picsum.photos/seed/p17/800/500", amazon:"https://www.amazon.com/s?k=1080p
+/* PRODUCTS: set img to a raw URL when you upload later; amazon can be exact product URL or fallback to search */
+const products = [
+  {id:1,name:"GlowClip Selfie Light",category:"electronics",price:12.99,img:"https://picsum.photos/seed/p1/800/500",amazon:"https://www.amazon.com/s?k=clip+on+selfie+light"},
+  {id:2,name:"ChargeWave Wireless Charger",category:"electronics",price:17.99,img:"https://picsum.photos/seed/p2/800/500",amazon:"https://www.amazon.com/s?k=wireless+charger"},
+  {id:3,name:"BeatBuds Wireless Earbuds",category:"electronics",price:24.99,img:"https://picsum.photos/seed/p3/800/500",amazon:"https://www.amazon.com/s?k=wireless+earbuds"},
+  {id:4,name:"PicoProject Mini Projector",category:"electronics",price:59.99,img:"https://picsum.photos/seed/p4/800/500",amazon:"https://www.amazon.com/s?k=pico+projector"},
+  {id:5,name:"Pocket Power Bank 10000mAh",category:"electronics",price:22.99,img:"https://picsum.photos/seed/p5/800/500",amazon:"https://www.amazon.com/s?k=10000mah+power+bank"},
+  {id:6,name:"Tilt Wireless Charging Stand",category:"electronics",price:19.49,img:"https://picsum.photos/seed/p6/800/500",amazon:"https://www.amazon.com/s?k=wireless+charging+stand"},
+  {id:7,name:"VibePad RGB Mousepad",category:"gaming",price:19.99,img:"https://picsum.photos/seed/p7/800/500",amazon:"https://www.amazon.com/s?k=rgb+gaming+mouse+pad"},
+  {id:8,name:"Compact Bluetooth Gamepad",category:"gaming",price:29.99,img:"https://picsum.photos/seed/p8/800/500",amazon:"https://www.amazon.com/s?k=mobile+gamepad"},
+  {id:9,name:"Pro Thumb Grips (6-pack)",category:"gaming",price:6.99,img:"https://picsum.photos/seed/p9/800/500",amazon:"https://www.amazon.com/s?k=thumb+grips"},
+  {id:10,name:"Desk RGB Bias Lamp",category:"gaming",price:21.49,img:"https://picsum.photos/seed/p10/800/500",amazon:"https://www.amazon.com/s?k=bias+lighting"},
+  {id:11,name:"FlexGrip Tripod Stand",category:"creator",price:15.99,img:"https://picsum.photos/seed/p11/800/500",amazon:"https://www.amazon.com/s?k=flexible+phone+tripod"},
+  {id:12,name:"SnapShutter Bluetooth Remote",category:"creator",price:9.99,img:"https://picsum.photos/seed/p12/800/500",amazon:"https://www.amazon.com/s?k=bluetooth+shutter+remote"},
+  {id:13,name:"LED Ring Light with Tripod",category:"creator",price:18.99,img:"https://picsum.photos/seed/p13/800/500",amazon:"https://www.amazon.com/s?k=led+ring+light+tripod"},
+  {id:14,name:"USB Condenser Desktop Mic",category:"creator",price:29.99,img:"https://picsum.photos/seed/p14/800/500",amazon:"https://www.amazon.com/s?k=usb+condenser+microphone"},
+  {id:15,name:"Foldable Green Screen",category:"creator",price:23.99,img:"https://picsum.photos/seed/p15/800/500",amazon:"https://www.amazon.com/s?k=foldable+green+screen"},
+  {id:16,name:"HydroSip Reusable Bottle",category:"lifestyle",price:14.49,img:"https://picsum.photos/seed/p16/800/500",amazon:"https://www.amazon.com/s?k=reusable+water+bottle"},
+  {id:17,name:"Mini Scent Candle Set",category:"lifestyle",price:11.99,img:"https://picsum.photos/seed/p17/800/500",amazon:"https://www.amazon.com/s?k=scented+candle+set"},
+  {id:18,name:"Slim Minimal Wallet",category:"lifestyle",price:12.49,img:"https://picsum.photos/seed/p18/800/500",amazon:"https://www.amazon.com/s?k=slim+wallet"},
+  {id:19,name:"Cozy Travel Blanket",category:"lifestyle",price:18.99,img:"https://picsum.photos/seed/p19/800/500",amazon:"https://www.amazon.com/s?k=travel+blanket"},
+  {id:20,name:"Slim Phone Grip Stand",category:"accessories",price:6.99,img:"https://picsum.photos/seed/p20/800/500",amazon:"https://www.amazon.com/s?k=phone+grip+stand"},
+  {id:21,name:"Cable Organizer Roll",category:"accessories",price:9.49,img:"https://picsum.photos/seed/p21/800/500",amazon:"https://www.amazon.com/s?k=cable+organizer+roll"},
+  {id:22,name:"Mini Tech Cleaning Kit",category:"accessories",price:8.49,img:"https://picsum.photos/seed/p22/800/500",amazon:"https://www.amazon.com/s?k=electronics+cleaning+kit"},
+  {id:23,name:"Pocket Multi-Tool (compact)",category:"accessories",price:15.99,img:"https://picsum.photos/seed/p23/800/500",amazon:"https://www.amazon.com/s?k=multi+tool+compact"},
+  {id:24,name:"Bluetooth Shower Speaker",category:"electronics",price:21.99,img:"https://picsum.photos/seed/p24/800/500",amazon:"https://www.amazon.com/s?k=waterproof+bluetooth+speaker"},
+  {id:25,name:"Smart LED Strip (5m)",category:"electronics",price:16.99,img:"https://picsum.photos/seed/p25/800/500",amazon:"https://www.amazon.com/s?k=led+strip+lights"},
+  {id:26,name:"Mini Tripod for Vlogging",category:"creator",price:12.99,img:"https://picsum.photos/seed/p26/800/500",amazon:"https://www.amazon.com/s?k=mini+tripod+vlogging"},
+  {id:27,name:"Pop Socket Phone Grip",category:"creator",price:7.49,img:"https://picsum.photos/seed/p27/800/500",amazon:"https://www.amazon.com/s?k=pop+socket+phone+grip"},
+  {id:28,name:"Controller Charging Dock",category:"gaming",price:24.99,img:"https://picsum.photos/seed/p28/800/500",amazon:"https://www.amazon.com/s?k=controller+charging+dock"},
+  {id:29,name:"Comfort Gaming Headset",category:"gaming",price:29.99,img:"https://picsum.photos/seed/p29/800/500",amazon:"https://www.amazon.com/s?k=budget+gaming+headset"},
+  {id:30,name:"Stylish Sunglasses Set",category:"lifestyle",price:14.99,img:"https://picsum.photos/seed/p30/800/500",amazon:"https://www.amazon.com/s?k=stylish+sunglasses"},
+  {id:31,name:"Portable Hammock",category:"lifestyle",price:19.99,img:"https://picsum.photos/seed/p31/800/500",amazon:"https://www.amazon.com/s?k=portable+hammock"},
+  {id:32,name:"Travel Toiletry Bag",category:"lifestyle",price:13.99,img:"https://picsum.photos/seed/p32/800/500",amazon:"https://www.amazon.com/s?k=travel+toiletry+bag"},
+  {id:33,name:"Phone Camera Lens Cleaner",category:"accessories",price:6.49,img:"https://picsum.photos/seed/p33/800/500",amazon:"https://www.amazon.com/s?k=phone+camera+cleaner"},
+  {id:34,name:"Mini Puzzle Fidget Toy",category:"accessories",price:4.99,img:"https://picsum.photos/seed/p34/800/500",amazon:"https://www.amazon.com/s?k=fidget+puzzle+toy"},
+  {id:35,name:"Wireless Presenter Remote",category:"accessories",price:11.99,img:"https://picsum.photos/seed/p35/800/500",amazon:"https://www.amazon.com/s?k=wireless+presenter+remote"},
+  {id:36,name:"LED Book Light",category:"electronics",price:8.99,img:"https://picsum.photos/seed/p36/800/500",amazon:"https://www.amazon.com/s?k=led+book+light"},
+  {id:37,name:"Magnetic Phone Car Mount",category:"electronics",price:10.49,img:"https://picsum.photos/seed/p37/800/500",amazon:"https://www.amazon.com/s?k=magnetic+phone+car+mount"},
+  {id:38,name:"Cable Fast Charger Kit",category:"electronics",price:13.99,img:"https://picsum.photos/seed/p38/800/500",amazon:"https://www.amazon.com/s?k=fast+charger+usb+c"},
+  {id:39,name:"Smart Watch Budget",category:"electronics",price:32.99,img:"https://picsum.photos/seed/p39/800/500",amazon:"https://www.amazon.com/s?k=budget+smartwatch"},
+  {id:40,name:"Phone Sleeve Neoprene",category:"accessories",price:7.99,img:"https://picsum.photos/seed/p40/800/500",amazon:"https://www.amazon.com/s?k=phone+sleeve"},
+  {id:41,name:"Velcro Strap Organizer (pack)",category:"accessories",price:6.49,img:"https://picsum.photos/seed/p41/800/500",amazon:"https://www.amazon.com/s?k=velcro+strap+organizer"},
+  {id:42,name:"Compact Power Strip with USB",category:"electronics",price:18.99,img:"https://picsum.photos/seed/p42/800/500",amazon:"https://www.amazon.com/s?k=power+strip+with+usb"},
+  {id:43,name:"Portable Coffee Milk Frother",category:"lifestyle",price:11.49,img:"https://picsum.photos/seed/p43/800/500",amazon:"https://www.amazon.com/s?k=milk+frother+portable"},
+  {id:44,name:"Waterproof Dry Bag 10L",category:"lifestyle",price:15.99,img:"https://picsum.photos/seed/p44/800/500",amazon:"https://www.amazon.com/s?k=waterproof+dry+bag"},
+  {id:45,name:"Foldable Bluetooth Keyboard",category:"electronics",price:27.99,img:"https://picsum.photos/seed/p45/800/500",amazon:"https://www.amazon.com/s?k=foldable+bluetooth+keyboard"},
+  {id:46,name:"Magnetic Cable Ties (10-pack)",category:"accessories",price:7.99,img:"https://picsum.photos/seed/p46/800/500",amazon:"https://www.amazon.com/s?k=magnetic+cable+ties"},
+  {id:47,name:"Portable Phone Stand Aluminum",category:"creator",price:17.49,img:"https://picsum.photos/seed/p47/800/500",amazon:"https://www.amazon.com/s?k=portable+phone+stand+aluminum"},
+  {id:48,name:"Small LED Light Bar",category:"creator",price:19.99,img:"https://picsum.photos/seed/p48/800/500",amazon:"https://www.amazon.com/s?k=small+led+light+bar"}
+];
+
+const productGrid = document.getElementById('productGrid');
+const loadMoreBtn = document.getElementById('loadMore');
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+const clearBtn = document.getElementById('clearBtn');
+const filterChips = Array.from(document.querySelectorAll('.chip[data-filter], .chip')).filter(c => c.dataset && c.dataset.filter);
+const chipsAll = Array.from(document.querySelectorAll('.chip'));
+const sortPriceBtn = document.getElementById('sortPrice');
+const sortAZBtn = document.getElementById('sortAZ');
+const resetSortBtn = document.getElementById('resetSort');
+const themeToggle = document.getElementById('themeToggle');
+
+let visibleCount = 24;
+let currentFilter = 'all';
+let working = products.slice();
+let cart = [];
+
+/* safe amazon href */
+function amazonHref(p){
+  if(p.amazon && (p.amazon.indexOf('http') === 0)) return p.amazon;
+  return 'https://www.amazon.com/s?k=' + encodeURIComponent(p.name);
+}
+
+/* create card using DOM APIs (avoid innerHTML bugs) */
+function createCard(p){
+  const card = document.createElement('article');
+  card.className = 'card';
+  card.setAttribute('data-id', p.id);
+  card.setAttribute('data-name', p.name);
+  card.setAttribute('data-price', String(p.price));
+  card.setAttribute('data-cat', p.category);
+
+  const img = document.createElement('img');
+  img.loading = 'lazy';
+  img.alt = p.name;
+  img.src = (p.img && typeof p.img === 'string') ? p.img : ('https://picsum.photos/seed/p' + p.id + '/800/500');
+  img.onerror = function(){
+    this.onerror = null;
+    this.src = 'https://picsum.photos/800/500?random=' + (900 + p.id);
+  };
+
+  const body = document.createElement('div');
+  body.className = 'card-body';
+
+  const cat = document.createElement('div');
+  cat.className = 'cat';
+  cat.textContent = p.category;
+
+  const title = document.createElement('div');
+  title.className = 'p-title';
+  title.textContent = p.name;
+
+  const desc = document.createElement('div');
+  desc.className = 'p-desc';
+  desc.textContent = p.name + ' — a great ' + p.category + ' pick.';
+
+  const row = document.createElement('div');
+  row.className = 'row';
+
+  const price = document.createElement('div');
+  price.className = 'price';
+  price.textContent = '$' + Number(p.price).toFixed(2);
+
+  const ac

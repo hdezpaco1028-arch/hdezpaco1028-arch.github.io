@@ -69,7 +69,7 @@
   .p-title{font-weight:900;color:#fff}
   .p-desc{color:var(--muted-dark);font-size:13px;flex:1}
   .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .price{font-weight:900;color:#fff}
+  .price{font-weight:900;color:#fff'}
   .buy{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:900}
   .buy.small{padding:6px 8px}
   /* modal */
@@ -82,6 +82,11 @@
   .close{background:transparent;border:0;color:var(--muted-dark);font-weight:800;cursor:pointer;align-self:flex-end}
   /* cart */
   .cartbar{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:14px;color:#fff;font-weight:900;cursor:pointer;box-shadow:0 12px 36px rgba(0,0,0,0.5);z-index:2500}
+  /* cart drawer content */
+  .cart-card{background:var(--panel-dark);border-radius:12px;padding:12px;min-width:320px;max-width:420px;color:var(--text-dark);box-shadow:var(--card-shadow)}
+  .cart-item{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+  .cart-item img{width:56px;height:42px;object-fit:cover;border-radius:6px}
+  .cart-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:10px}
   /* footer */
   footer{margin-top:26px;padding:20px;text-align:center;color:var(--muted-dark)}
   /* responsive */
@@ -104,7 +109,7 @@
     <a class="nav-link" href="#gaming">Gaming</a>
     <a class="nav-link" href="#creator">Creator</a>
     <a class="nav-link" href="#lifestyle">Lifestyle</a>
-    <button id="themeToggle" aria-pressed="false">Dark/Light</button>
+    <button id="themeToggle" aria-pressed="false" aria-label="Toggle color theme">Dark/Light</button>
     <a style="margin-left:8px" class="nav-link" href="https://www.tiktok.com/@franciscohernande039" target="_blank" rel="noopener">TikTok</a>
     <a class="nav-link" href="https://instagram.com/hdezpaco1028" target="_blank" rel="noopener">Instagram</a>
   </div>
@@ -114,7 +119,7 @@
   <section class="hero" aria-labelledby="heroTitle">
     <div class="left">
       <h1 id="heroTitle">Francisco's Mega Store — Curated Deals</h1>
-      <p>70+ curated items across categories. Everything is ready to use — Buy buttons open Amazon search pages for the product term (replace with exact links later for best conversion).</p>
+      <p id="catalogHint">72 curated items across categories. Everything is ready to use — Buy buttons open Amazon search pages for the product term (replace with exact links later for best conversion).</p>
 
       <div class="cta">
         <a class="btn" href="#store">Browse Catalog</a>
@@ -153,7 +158,6 @@
     <h2 id="statesTitle" style="margin:0 0 6px">Shop by State (quick links)</h2>
     <p style="color:var(--muted-dark);margin:0 0 10px">Tap a state to jump to the store. (State-specific pages can be generated later.)</p>
     <div class="state-grid" id="stateGrid" aria-hidden="false">
-      <!-- short selection to keep the hero area useful; clicking takes user to the store -->
       <div class="state-card"><img src="https://picsum.photos/seed/state1/800/600" alt="Alabama" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=901'"><div class="state-body"><div class="state-name">Alabama</div><a href="#store">Shop</a></div></div>
       <div class="state-card"><img src="https://picsum.photos/seed/state2/800/600" alt="California" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=902'"><div class="state-body"><div class="state-name">California</div><a href="#store">Shop</a></div></div>
       <div class="state-card"><img src="https://picsum.photos/seed/state3/800/600" alt="Texas" onerror="this.onerror=null;this.src='https://picsum.photos/800/600?random=903'"><div class="state-body"><div class="state-name">Texas</div><a href="#store">Shop</a></div></div>
@@ -172,9 +176,9 @@
 
     <!-- controls -->
     <div style="display:flex;gap:8px;align-items:center;margin:8px 0 16px;flex-wrap:wrap">
-      <div class="chip" id="sortPrice">Sort: Price</div>
-      <div class="chip" id="sortAZ">Sort: A → Z</div>
-      <div class="chip" id="resetSort">Reset</div>
+      <div class="chip" id="sortPrice" role="button" tabindex="0">Sort: Price</div>
+      <div class="chip" id="sortAZ" role="button" tabindex="0">Sort: A → Z</div>
+      <div class="chip" id="resetSort" role="button" tabindex="0">Reset</div>
     </div>
 
     <div id="productGrid" class="grid" aria-live="polite"></div>
@@ -198,7 +202,7 @@
 </main>
 
 <!-- product modal -->
-<div id="modal" class="modal" aria-hidden="true" role="dialog">
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Product details dialog">
   <div class="modal-card" role="document">
     <img id="modalImg" class="modal-img" src="" alt="Product image" />
     <div class="modal-content">
@@ -215,6 +219,21 @@
   </div>
 </div>
 
+<!-- cart overlay (re-uses modal layout) -->
+<div id="cartOverlay" class="modal" aria-hidden="true" role="dialog" aria-label="Cart dialog">
+  <div class="modal-card cart-card" role="document" style="flex-direction:column;max-width:420px;">
+    <button id="cartClose" class="close" aria-label="Close cart">CLOSE ✕</button>
+    <div style="font-weight:900;font-size:18px">Your Demo Cart</div>
+    <div id="cartItems" style="margin-top:8px"></div>
+    <div class="cart-actions">
+      <div id="cartTotal" style="font-weight:900"></div>
+      <div style="flex:1"></div>
+      <button id="clearCart" class="chip">Clear</button>
+      <button id="checkout" class="buy">Checkout</button>
+    </div>
+  </div>
+</div>
+
 <div id="cartBar" class="cartbar" role="button" aria-label="Open cart">Cart (0)</div>
 
 <footer>
@@ -223,47 +242,28 @@
 
 <script>
 /* ======================
-   PRODUCT DATA (70+ items)
-   - Each product: id, name, category, price (sample), img (picsum seed), amazon (search URL or exact product URL)
-   - To replace images: upload to your repo and set img to raw.githubusercontent URL.
-   - To replace buy link: set amazon to the exact product page URL.
+   PRODUCT DATA (72 items)
+   - id, name, category, price, img, amazon, desc
+   - Replace img with your raw github url and amazon with exact product link for production.
    ====================== */
 const products = [
-  /* ELECTRONICS */
-  {id:1, name:"GlowClip Selfie Light", category:"electronics", price:12.99, img:"https://picsum.photos/seed/p1/800/500", amazon:"https://www.amazon.com/s?k=clip+on+selfie+light"},
-  {id:2, name:"ChargeWave Wireless Charger", category:"electronics", price:17.99, img:"https://picsum.photos/seed/p2/800/500", amazon:"https://www.amazon.com/s?k=wireless+charger"},
-  {id:3, name:"BeatBuds Wireless Earbuds", category:"electronics", price:24.99, img:"https://picsum.photos/seed/p3/800/500", amazon:"https://www.amazon.com/s?k=wireless+earbuds"},
-  {id:4, name:"PicoProject Mini Projector", category:"electronics", price:59.99, img:"https://picsum.photos/seed/p4/800/500", amazon:"https://www.amazon.com/s?k=pico+projector"},
-  {id:5, name:"Pocket Power Bank 10000mAh", category:"electronics", price:22.99, img:"https://picsum.photos/seed/p5/800/500", amazon:"https://www.amazon.com/s?k=10000mah+power+bank"},
-  {id:6, name:"Tilt Wireless Charging Stand", category:"electronics", price:19.49, img:"https://picsum.photos/seed/p6/800/500", amazon:"https://www.amazon.com/s?k=wireless+charging+stand"},
-  {id:7, name:"USB-C Hub 6-in-1", category:"electronics", price:19.99, img:"https://picsum.photos/seed/p7/800/500", amazon:"https://www.amazon.com/s?k=usb+c+hub"},
-  {id:8, name:"Mini Bluetooth Tracker", category:"electronics", price:9.49, img:"https://picsum.photos/seed/p8/800/500", amazon:"https://www.amazon.com/s?k=bluetooth+tracker"},
-  {id:9, name:"Slim Portable SSD Case", category:"electronics", price:11.50, img:"https://picsum.photos/seed/p9/800/500", amazon:"https://www.amazon.com/s?k=portable+ssd+case"},
+  /* ELECTRONICS (1-12) */
+  {id:1, name:"GlowClip Selfie Light", category:"electronics", price:12.99, img:"https://picsum.photos/seed/p1/800/500", amazon:"https://www.amazon.com/s?k=clip+on+selfie+light", desc:"Clip-on selfie light with adjustable brightness — perfect for phone videos."},
+  {id:2, name:"ChargeWave Wireless Charger", category:"electronics", price:17.99, img:"https://picsum.photos/seed/p2/800/500", amazon:"https://www.amazon.com/s?k=wireless+charger", desc:"Slim wireless charging pad, Qi compatible."},
+  {id:3, name:"BeatBuds Wireless Earbuds", category:"electronics", price:24.99, img:"https://picsum.photos/seed/p3/800/500", amazon:"https://www.amazon.com/s?k=wireless+earbuds", desc:"Budget true wireless earbuds with decent battery life."},
+  {id:4, name:"PicoProject Mini Projector", category:"electronics", price:59.99, img:"https://picsum.photos/seed/p4/800/500", amazon:"https://www.amazon.com/s?k=pico+projector", desc:"Compact mini projector for movies and streaming on the go."},
+  {id:5, name:"Pocket Power Bank 10000mAh", category:"electronics", price:22.99, img:"https://picsum.photos/seed/p5/800/500", amazon:"https://www.amazon.com/s?k=10000mah+power+bank", desc:"Slim power bank with fast-charging support."},
+  {id:6, name:"Tilt Wireless Charging Stand", category:"electronics", price:19.49, img:"https://picsum.photos/seed/p6/800/500", amazon:"https://www.amazon.com/s?k=wireless+charging+stand", desc:"Phone stand with wireless charging — great for vertical video."},
+  {id:7, name:"USB-C Hub 6-in-1", category:"electronics", price:19.99, img:"https://picsum.photos/seed/p7/800/500", amazon:"https://www.amazon.com/s?k=usb+c+hub", desc:"Expand a laptop with HDMI, USB-A, SD card and more."},
+  {id:8, name:"Mini Bluetooth Tracker", category:"electronics", price:9.49, img:"https://picsum.photos/seed/p8/800/500", amazon:"https://www.amazon.com/s?k=bluetooth+tracker", desc:"Tiny tracker for keys, bags and wallets."},
+  {id:9, name:"Slim Portable SSD Case", category:"electronics", price:11.50, img:"https://picsum.photos/seed/p9/800/500", amazon:"https://www.amazon.com/s?k=portable+ssd+case", desc:"Protective case for portable SSDs and small drives."},
+  {id:10, name:"MagSafe Compatible Wallet", category:"electronics", price:15.99, img:"https://picsum.photos/seed/p10/800/500", amazon:"https://www.amazon.com/s?k=magsafe+wallet", desc:"Slim magnetic wallet for modern phones."},
+  {id:11, name:"Bluetooth FM Transmitter", category:"electronics", price:13.99, img:"https://picsum.photos/seed/p11/800/500", amazon:"https://www.amazon.com/s?k=bluetooth+fm+transmitter", desc:"Stream audio to older car stereos via FM."},
+  {id:12, name:"LED Desk Lamp with USB", category:"electronics", price:18.49, img:"https://picsum.photos/seed/p12/800/500", amazon:"https://www.amazon.com/s?k=led+desk+lamp+usb", desc:"Adjustable desk lamp with USB outlet."},
 
-  /* GAMING */
-  {id:10, name:"VibePad RGB Mousepad", category:"gaming", price:19.99, img:"https://picsum.photos/seed/p10/800/500", amazon:"https://www.amazon.com/s?k=rgb+gaming+mouse+pad"},
-  {id:11, name:"Compact Bluetooth Gamepad", category:"gaming", price:29.99, img:"https://picsum.photos/seed/p11/800/500", amazon:"https://www.amazon.com/s?k=mobile+gamepad"},
-  {id:12, name:"Pro Thumb Grips (6-pack)", category:"gaming", price:6.99, img:"https://picsum.photos/seed/p12/800/500", amazon:"https://www.amazon.com/s?k=thumb+grips"},
-  {id:13, name:"Desk RGB Bias Lamp", category:"gaming", price:21.49, img:"https://picsum.photos/seed/p13/800/500", amazon:"https://www.amazon.com/s?k=bias+lighting"},
-  {id:14, name:"Budget HD Streaming Webcam", category:"gaming", price:34.99, img:"https://picsum.photos/seed/p14/800/500", amazon:"https://www.amazon.com/s?k=1080p+webcam"},
-
-  /* CREATOR */
-  {id:15, name:"FlexGrip Tripod Stand", category:"creator", price:15.99, img:"https://picsum.photos/seed/p15/800/500", amazon:"https://www.amazon.com/s?k=flexible+phone+tripod"},
-  {id:16, name:"SnapShutter Bluetooth Remote", category:"creator", price:9.99, img:"https://picsum.photos/seed/p16/800/500", amazon:"https://www.amazon.com/s?k=bluetooth+shutter+remote"},
-  {id:17, name:"LED Ring Light with Tripod", category:"creator", price:18.99, img:"https://picsum.photos/seed/p17/800/500", amazon:"https://www.amazon.com/s?k=led+ring+light+tripod"},
-  {id:18, name:"USB Condenser Desktop Mic", category:"creator", price:29.99, img:"https://picsum.photos/seed/p18/800/500", amazon:"https://www.amazon.com/s?k=usb+condenser+microphone"},
-  {id:19, name:"Foldable Green Screen", category:"creator", price:23.99, img:"https://picsum.photos/seed/p19/800/500", amazon:"https://www.amazon.com/s?k=foldable+green+screen"},
-  {id:20, name:"Lavalier Mic for Mobile", category:"creator", price:12.49, img:"https://picsum.photos/seed/p20/800/500", amazon:"https://www.amazon.com/s?k=lavalier+microphone"},
-  {id:21, name:"Pocket LED Light Panel", category:"creator", price:21.99, img:"https://picsum.photos/seed/p21/800/500", amazon:"https://www.amazon.com/s?k=led+light+panel"},
-  {id:22, name:"Clip-on Wide/Macro Lens", category:"creator", price:14.99, img:"https://picsum.photos/seed/p22/800/500", amazon:"https://www.amazon.com/s?k=clip+on+phone+lens"},
-
-  /* LIFESTYLE */
-  {id:23, name:"HydroSip Reusable Bottle", category:"lifestyle", price:14.49, img:"https://picsum.photos/seed/p23/800/500", amazon:"https://www.amazon.com/s?k=reusable+water+bottle"},
-  {id:24, name:"Mini Scent Candle Set", category:"lifestyle", price:11.99, img:"https://picsum.photos/seed/p24/800/500", amazon:"https://www.amazon.com/s?k=scented+candle+set"},
-  {id:25, name:"Slim Minimal Wallet", category:"lifestyle", price:12.49, img:"https://picsum.photos/seed/p25/800/500", amazon:"https://www.amazon.com/s?k=slim+wallet"},
-  {id:26, name:"Cozy Travel Blanket", category:"lifestyle", price:18.99, img:"https://picsum.photos/seed/p26/800/500", amazon:"https://www.amazon.com/s?k=travel+blanket"},
-  {id:27, name:"Reusable Straw Kit", category:"lifestyle", price:8.49, img:"https://picsum.photos/seed/p27/800/500", amazon:"https://www.amazon.com/s?k=reusable+straw+kit"},
-
-  /* ACCESSORIES */
-  {id:28, name:"Slim Phone Grip Stand", category:"accessories", price:6.99, img:"https://picsum.photos/seed/p28/800/500", amazon:"https://www.amazon.com/s?k=phone+grip+stand"},
-  {id:29, name:"Cable Organizer Roll"
+  /* GAMING (13-20) */
+  {id:13, name:"VibePad RGB Mousepad", category:"gaming", price:19.99, img:"https://picsum.photos/seed/p13/800/500", amazon:"https://www.amazon.com/s?k=rgb+gaming+mouse+pad", desc:"Large RGB mousepad with soft edges."},
+  {id:14, name:"Compact Bluetooth Gamepad", category:"gaming", price:29.99, img:"https://picsum.photos/seed/p14/800/500", amazon:"https://www.amazon.com/s?k=mobile+gamepad", desc:"Portable controller for mobile gaming."},
+  {id:15, name:"Pro Thumb Grips (6-pack)", category:"gaming", price:6.99, img:"https://picsum.photos/seed/p15/800/500", amazon:"https://www.amazon.com/s?k=thumb+grips", desc:"Improve analog stick control on controllers."},
+  {id:16, name:"Desk RGB Bias Lamp", category:"gaming", price:21.49, img:"https://picsum.photos/seed/p16/800/500", amazon:"https://www.amazon.com/s?k=bias+lighting", desc:"Bias lighting for reduced eye strain and better contrast."},
+  {id:17, name:"Budget HD Streaming Webcam", category:"gaming", price:34.99, img:"https://picsum.photos/seed/p17/800/500", amazon:"https://www.amazon.com/s?k=1080p

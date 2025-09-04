@@ -6,20 +6,165 @@
 <title>Francisco — 250 Product Mega Demo</title>
 <meta name="description" content="Francisco's Mega Store — 250 generated products. TikTok @franciscohernande039 | IG @hdezpaco1028" />
 <style>
-  /* ... [Styles as provided above] ... */
+  :root{
+    --bg:#071425; --panel:#0d2030; --muted:#9fb5c9; --accent1:#ff5aa5; --accent2:#45d1ff;
+    --card-radius:12px; --maxw:1200px; --text:#eaf5ff;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text);background:linear-gradient(180deg,var(--bg),#021224);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  header{position:sticky;top:0;padding:12px 16px;background:linear-gradient(90deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:1200}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff}
+  .title{font-weight:900;color:#fff}
+  nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .nav-link{background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800}
+  main{max-width:var(--maxw);margin:18px auto;padding:12px}
+  .hero{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,0.02);padding:14px;border-radius:var(--card-radius);flex-wrap:wrap}
+  .hero h1{margin:0;font-size:20px}
+  .hero p{margin:6px 0 0;color:var(--muted)}
+  .controls{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .search input{padding:10px 12px;border-radius:10px;border:0;background:rgba(255,255,255,0.03);color:inherit;outline:none;width:260px}
+  .chip{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:800;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
+  .chip.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
+  .section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 8px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0.01));border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(2,6,23,0.6);transition:transform .18s}
+  .card:hover{transform:translateY(-6px)}
+  .media{height:150px;background:#071827;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .meta{padding:10px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .cat{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase}
+  .p-title{font-weight:900;color:#fff}
+  .p-desc{color:var(--muted);font-size:13px;flex:1}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .price{font-weight:900;color:#fff}
+  .buy{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:900}
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,0.65);z-index:3000}
+  .modal.show{display:flex}
+  .modal-card{background:var(--panel);border-radius:12px;max-width:980px;width:100%;overflow:hidden;display:flex;gap:12px;flex-wrap:wrap}
+  .modal-img{width:48%;min-height:260px;object-fit:cover;background:#0b1220}
+  .modal-content{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .close{background:transparent;border:0;color:var(--muted);font-weight:800;cursor:pointer;align-self:flex-end}
+  .cartbar{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px 14px;border-radius:14px;color:#fff;font-weight:900;cursor:pointer;box-shadow:0 12px 36px rgba(0,0,0,0.5);z-index:2500}
+  footer{margin-top:26px;padding:22px;text-align:center;color:var(--muted)}
+  @media (max-width:900px){
+    .hero{flex-direction:column}
+    .search input{width:160px}
+    .modal-card{flex-direction:column}
+    .modal-img{width:100%;height:260px}
+  }
 </style>
 </head>
 <body>
 <header>
-  <!-- ... [Header as provided above] ... -->
+  <div class="brand">
+    <div class="logo" aria-hidden="true">FD</div>
+    <div>
+      <div class="title">Francisco — Mega Catalog</div>
+      <div class="subtitle">TikTok: @franciscohernande039 · IG: @hdezpaco1028</div>
+    </div>
+  </div>
+
+  <nav>
+    <a class="nav-link" href="#store">Store</a>
+    <a class="nav-link" href="#featured">Featured</a>
+    <a class="nav-link" href="#creator">Creator</a>
+    <a class="nav-link" href="#howto">How to swap</a>
+  </nav>
 </header>
 
 <main id="main">
-  <!-- ... [Main content as provided above] ... -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="intro">
+      <h1 id="heroTitle">Massive Catalog — 250 generated products</h1>
+      <p>Programmed to avoid huge static HTML — fast, lazy images, and real links you can replace later.</p>
+
+      <div class="controls" role="region" aria-label="search and filters">
+        <div class="search" role="search">
+          <input id="searchInput" placeholder="Search products (press Enter)" aria-label="Search products" />
+          <button id="searchBtn" class="chip">Search</button>
+          <button id="clearBtn" class="chip">Clear</button>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="chip active" data-filter="all">All</div>
+          <div class="chip" data-filter="electronics">Electronics</div>
+          <div class="chip" data-filter="gaming">Gaming</div>
+          <div class="chip" data-filter="creator">Creator</div>
+          <div class="chip" data-filter="lifestyle">Lifestyle</div>
+          <div class="chip" data-filter="accessories">Accessories</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="min-width:240px">
+      <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;text-align:center">
+        <div style="font-weight:900">Follow Francisco</div>
+        <div style="color:var(--muted);margin-top:8px">@franciscohernande039<br>@hdezpaco1028</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured" style="margin-top:18px">
+    <div class="section-title">
+      <h2 style="margin:0">Featured (sample)</h2>
+      <div class="small">Hand-picked demo picks</div>
+    </div>
+    <div id="featuredGrid" class="grid"></div>
+  </section>
+
+  <section id="store" style="margin-top:18px">
+    <div class="section-title">
+      <h2 style="margin:0">Store — Catalog</h2>
+      <div class="small">Pagination & lazy-loading to keep things smooth on mobile</div>
+    </div>
+
+    <div id="productGrid" class="grid" aria-live="polite"></div>
+
+    <div style="display:flex;gap:8px;align-items:center;justify-content:center;margin-top:16px">
+      <button id="prevPage" class="chip">Prev</button>
+      <div id="pageInfo" class="small">Page 1</div>
+      <button id="nextPage" class="chip">Next</button>
+      <button id="loadMore" class="chip">Load more</button>
+      <div id="exportCSV" class="chip">Export CSV</div>
+    </div>
+  </section>
+
+  <section id="creator" style="margin-top:24px">
+    <div class="section-title">
+      <h2 style="margin:0">Creator Tools</h2>
+      <div class="small">Starter kits & creator favorites</div>
+    </div>
+    <div id="creatorGrid" class="grid"></div>
+  </section>
+
+  <section id="howto" style="margin-top:22px;color:var(--muted)">
+    <h3>How to replace images & links</h3>
+    <ol>
+      <li>Upload images to your GitHub repo → Add file → Upload files → Commit.</li>
+      <li>Open the uploaded image → click <strong>Raw</strong> → copy raw URL (https://raw.githubusercontent.com/...)</li>
+      <li>Edit this file and replace product <code>img</code> and <code>amazon</code> entries in the products generator if you want exact product pages.</li>
+    </ol>
+  </section>
 </main>
 
 <!-- modal -->
-<!-- ... [Modal as provided above] ... -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog">
+  <div class="modal-card" role="document">
+    <img id="modalImg" class="modal-img" src="" alt="Product image" />
+    <div class="modal-content">
+      <button id="modalClose" class="close" aria-label="Close">CLOSE ✕</button>
+      <div id="modalCat" class="small"></div>
+      <div id="modalTitle" style="font-weight:900;font-size:20px"></div>
+      <div id="modalDesc" class="small"></div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+        <div id="modalPrice" style="font-weight:900;font-size:18px"></div>
+        <a id="modalBuy" class="buy" href="#" target="_blank" rel="noopener">Open on Amazon</a>
+        <button id="modalAdd" class="chip">Add to demo cart</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="cartBar" class="cartbar">Cart (0)</div>
 
@@ -32,55 +177,189 @@
   'use strict';
 
   function el(tag,props,children){
-    // ... [Helper function as provided above] ...
+    const node = document.createElement(tag);
+    if(props){
+      for(const k in props){
+        if(k==='class') node.className = props[k];
+        else if(k==='style') node.style.cssText = props[k];
+        else if(k==='text') node.textContent = props[k];
+        else node.setAttribute(k, props[k]);
+      }
+    }
+    if(children && children.length) children.forEach(c => node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c));
+    return node;
   }
 
-  // ... [Product generation and state setup as provided above] ...
+  // Seed list (handful) + generator to create 250 products
+  const seedBase = [
+    {name:"GlowClip Selfie Light", category:"electronics", price:12.99, seed:'selfie-light'},
+    {name:"ChargeWave Wireless Charger", category:"electronics", price:17.99, seed:'wireless-charger'},
+    {name:"BeatBuds Wireless Earbuds", category:"electronics", price:24.99, seed:'wireless-earbuds'},
+    {name:"Pocket Power Bank 10000mAh", category:"electronics", price:22.99, seed:'power-bank'},
+    {name:"PicoProject Mini Projector", category:"electronics", price:59.99, seed:'mini-projector'},
+    {name:"VibePad RGB Mousepad", category:"gaming", price:19.99, seed:'rgb-mousepad'},
+    {name:"FlexGrip Tripod Stand", category:"creator", price:15.99, seed:'tripod'},
+    {name:"LED Ring Light with Tripod", category:"creator", price:18.99, seed:'ring-light'},
+    {name:"USB Condenser Desktop Mic", category:"creator", price:29.99, seed:'usb-mic'},
+    {name:"HydroSip Reusable Bottle", category:"lifestyle", price:14.49, seed:'water-bottle'},
+    {name:"Mini Scent Candle Set", category:"lifestyle", price:11.99, seed:'candles'},
+    {name:"Slim Phone Grip Stand", category:"accessories", price:6.99, seed:'phone-grip'},
+    {name:"Cable Organizer Roll", category:"accessories", price:9.49, seed:'cable-organizer'}
+  ];
 
-  // Image lazy loader
-  // ... [Image lazy loader as provided above] ...
+  const categories = ['electronics','gaming','creator','lifestyle','accessories'];
+  const prefixes = ['Mini','Pocket','Pro','Ultra','Compact','Smart','Foldable','Magnetic','Travel','Eco','Deluxe','Budget','Studio','Rapid','Portable'];
+  const items = ['Charger','Tripod','Headset','Mic','Light','Stand','Bank','Mousepad','Keyboard','Case','Sanitizer','Hammock','Bottle','Wallet','Organizer','Fan','Projector','Lens','Grip','Remote','Camera','Speaker','Adapter','Cable','Dock','Controller'];
 
-  // Create card
-  // ... [Card creation as provided above] ...
-
-  // Render helpers
-  // ... [Render helpers as provided above] ...
-
-  // Render featured & creator
-  // ... [Render featured & creator as provided above] ...
-
-  // Modal
-  // ... [Modal logic as provided above] ...
-
-  // Search/filter/sort
-  function runSearch(){ /* ... */ }
-  searchBtn.addEventListener('click', runSearch);
-  clearBtn.addEventListener('click', ()=>{ /* ... */ });
-  searchInput.addEventListener('keypress', (e)=>{ if(e.key==='Enter') runSearch(); });
-
-  Array.from(document.querySelectorAll('.chip[data-filter]')).forEach(chip=>{ chip.addEventListener('click', ()=>{ document.querySelectorAll('.chip[data-filter]').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); state.filter=chip.getAttribute('data-filter'); state.page=1; renderPage(); }); });
-
-  prevPageBtn.addEventListener('click', ()=>{ if(state.page>1){state.page--;renderPage();}});
-  nextPageBtn.addEventListener('click', ()=>{const filtered=getFiltered();const pageCount=Math.max(1,Math.ceil(filtered.length/state.pageSize));if(state.page<pageCount){state.page++;renderPage();}});
-  loadMoreBtn.addEventListener('click', ()=>{state.pageSize+=30;renderPage();});
-
-  exportCSVBtn.addEventListener('click', ()=>{
-    let csv = 'Name,Category,Price\n';
-    getFiltered().forEach(p=>{
-      csv += `"${p.name}","${p.category}",${p.price}\n`;
+  const products = [];
+  let id = 1;
+  seedBase.forEach(s=>{
+    products.push({
+      id: id++,
+      name: s.name,
+      category: s.category,
+      price: s.price,
+      img: 'https://picsum.photos/seed/' + encodeURIComponent(s.seed) + '/800/500',
+      amazon: 'https://www.amazon.com/s?k=' + encodeURIComponent(s.name)
     });
-    const blob = new Blob([csv],{type:'text/csv'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'products.csv'; document.body.appendChild(a); a.click();
-    setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
   });
 
-  // Initial render
-  renderFeatured();
-  renderCreator();
-  renderPage();
-})();
-</script>
-</body>
-</html>
+  while(products.length < 250){
+    const cat = categories[Math.floor(Math.random()*categories.length)];
+    const pre = prefixes[Math.floor(Math.random()*prefixes.length)];
+    const it = items[Math.floor(Math.random()*items.length)];
+    const name = pre + ' ' + it;
+    const price = Math.round((Math.random()*120 + 4)*100)/100;
+    const seed = 'auto-' + name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'').slice(0,40) + '-' + (products.length+1);
+    products.push({
+      id: id++,
+      name: name,
+      category: cat,
+      price: price,
+      img: 'https://picsum.photos/seed/' + encodeURIComponent(seed) + '/800/500',
+      amazon: 'https://www.amazon.com/s?k=' + encodeURIComponent(name)
+    });
+  }
+
+  const featuredProducts = products.slice(0,12);
+  const creatorProducts = products.filter(p=>p.category === 'creator').slice(0,18);
+
+  // State & refs
+  const state = { working: products.slice(), page:1, pageSize:30, filter:'all', cart:[] };
+  const productGrid = document.getElementById('productGrid');
+  const featuredGrid = document.getElementById('featuredGrid');
+  const creatorGrid = document.getElementById('creatorGrid');
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const filterChips = Array.from(document.querySelectorAll('.chip[data-filter]'));
+  const sortPriceBtn = document.getElementById('sortPrice');
+  const sortAZBtn = document.getElementById('sortAZ');
+  const resetSortBtn = document.getElementById('resetSort');
+  const prevPageBtn = document.getElementById('prevPage');
+  const nextPageBtn = document.getElementById('nextPage');
+  const pageInfo = document.getElementById('pageInfo');
+  const loadMoreBtn = document.getElementById('loadMore');
+  const exportCSVBtn = document.getElementById('exportCSV');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalPrice = document.getElementById('modalPrice');
+  const modalBuy = document.getElementById('modalBuy');
+  const modalClose = document.getElementById('modalClose');
+  const modalAdd = document.getElementById('modalAdd');
+  const cartBar = document.getElementById('cartBar');
+  const themeToggle = document.getElementById('themeToggle');
+
+  // Image lazy loader
+  const imageObserver = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const img = entry.target;
+        const dataSrc = img.getAttribute('data-src');
+        if(dataSrc){ img.src = dataSrc; img.removeAttribute('data-src'); }
+        imageObserver.unobserve(img);
+      }
+    });
+  }, {rootMargin:'400px'}) : null;
+
+  // Create card
+  function createCard(p){
+    const card = el('article',{class:'card','data-id':p.id});
+    const media = el('div',{class:'media'});
+    const img = document.createElement('img');
+    img.alt = p.name;
+    img.setAttribute('data-src', p.img);
+    img.loading = 'lazy';
+    img.onerror = function(){ this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Image+missing'; };
+    media.appendChild(img);
+    if(imageObserver) imageObserver.observe(img);
+
+    const meta = el('div',{class:'meta'});
+    meta.appendChild(el('div',{class:'cat', text:p.category}));
+    meta.appendChild(el('div',{class:'p-title', text:p.name}));
+    meta.appendChild(el('div',{class:'p-desc', text:p.name + ' — ' + p.category + ' pick.'}));
+
+    const row = el('div',{class:'row'});
+    row.appendChild(el('div',{class:'price', text:'$' + Number(p.price).toFixed(2)}));
+
+    const actions = el('div',{style:'display:flex;gap:8px;align-items:center'});
+    const buy = el('a',{class:'buy', href:p.amazon, target:'_blank', rel:'noopener', text:'Buy'});
+    const view = el('button',{class:'chip', type:'button', text:'View'});
+    view.style.padding='6px 8px';
+    view.addEventListener('click', function(e){ e.stopPropagation(); openModal(p); });
+
+    actions.appendChild(buy); actions.appendChild(view);
+    row.appendChild(actions);
+    meta.appendChild(row);
+    card.appendChild(media); card.appendChild(meta);
+
+    card.addEventListener('click', function(e){ if(e.target && e.target.tagName==='A') return; openModal(p); });
+    return card;
+  }
+
+  // Render helpers
+  function getFiltered(){ const f = state.filter; return state.working.filter(p => (f==='all'?true:p.category===f)); }
+
+  function renderPage(){
+    const filtered = getFiltered();
+    const total = filtered.length;
+    const pageCount = Math.max(1, Math.ceil(total/state.pageSize));
+    if(state.page > pageCount) state.page = pageCount;
+    const start = (state.page-1)*state.pageSize; const end = start + state.pageSize;
+    const pageItems = filtered.slice(start,end);
+    productGrid.innerHTML = ''; pageItems.forEach(p => productGrid.appendChild(createCard(p)));
+    pageInfo.textContent = `Page ${state.page} / ${pageCount} (${total} items)`;
+  }
+
+  function renderAll(limit){
+    const filtered = getFiltered(); const max = limit || filtered.length;
+    productGrid.innerHTML = ''; filtered.slice(0,max).forEach(p => productGrid.appendChild(createCard(p)));
+    pageInfo.textContent = `Showing ${Math.min(max,filtered.length)} / ${filtered.length}`;
+  }
+
+  // Render featured & creator
+  function renderFeatured(){ featuredGrid.innerHTML=''; featuredProducts.forEach(p => featuredGrid.appendChild(createCard(p))); }
+  function renderCreator(){ creatorGrid.innerHTML=''; creatorProducts.forEach(p => creatorGrid.appendChild(createCard(p))); }
+
+  // Modal
+  function openModal(p){
+    modalImg.src = p.img; modalImg.onerror = function(){ this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Image+missing'; };
+    modalTitle.textContent = p.name; modalDesc.textContent = 'Category: ' + p.category; modalPrice.textContent = '$' + Number(p.price).toFixed(2);
+    modalBuy.href = p.amazon; modal.classList.add('show'); modal.setAttribute('aria-hidden','false');
+  }
+  modalClose.addEventListener('click', ()=>{ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); });
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); } });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); } });
+
+  modalAdd.addEventListener('click', ()=>{ const name = modalTitle.textContent||'Item'; const price = parseFloat((modalPrice.textContent||'').replace('$',''))||0; state.cart.push({name,price}); cartBar.textContent='Cart ('+state.cart.length+')'; alert(name+' added to demo cart'); });
+  cartBar.addEventListener('click', ()=>{ if(state.cart.length===0){ alert('Cart is empty (demo)'); return; } alert('Demo cart:\\n'+state.cart.map((it,i)=> (i+1)+'. '+it.name+' — $'+it.price.toFixed(2)).join('\\n')); });
+
+  // Search/filter/sort
+  function runSearch(){ const q=(searchInput.value||'').trim().toLowerCase(); if(!q){ state.working = products.slice(); state.page=1; renderPage(); return; } state.working = products.filter(p=>p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)); state.page=1; renderPage(); }
+  searchBtn.addEventListener('click', runSearch);
+  clearBtn.addEventListener('click', ()=>{ searchInput.value=''; state.working = products.slice(); state.page=1; state.filter='all'; document.querySelectorAll('.chip[data-filter]').forEach(c=>c.classList.remove('active')); document.querySelector('.chip[data-filter="all"]').classList.add('active'); renderPage(); });
+  searchInput.addEventListener('keypress', (e)=>{ if(e.key==='Enter') runSearch(); });
+
+  Array.from(document.querySelectorAll('.chip[data-filter]')).forEach(chip=>{ chip.addEventListener('click', ()=>{ document.querySelectorAll('.chip[data-filter]'
